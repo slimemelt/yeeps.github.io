@@ -167,6 +167,11 @@ async function save() {
 
 /* ---------- wiring ---------- */
 
+const LOGIN_MESSAGES = {
+  401: "That password didn’t work.",
+  429: "Too many tries. Wait a few minutes.",
+};
+
 function wire() {
   loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -177,7 +182,7 @@ function wire() {
       loginForm.reset();
       showSignedIn(true);
     } catch (failure) {
-      error.textContent = failure.status === 429 ? "Too many tries. Wait a few minutes." : "That password didn’t work.";
+      error.textContent = LOGIN_MESSAGES[failure.status] ?? "Couldn’t reach the server. Check your connection and try again.";
     }
   });
 
