@@ -1,0 +1,7 @@
+.stage[data-view=fund]{background:var(--navy);--tc:#fff;--lc:#fff}
+html[data-view=fund] body{background:var(--navy)}
+html[data-view=fund] #background{display:none}
+/* Fundings view */
+.fund-text{margin:0;text-align:center;color:#fff;z-index:3;font-size:calc(var(--fs)*var(--u));line-height:calc(var(--fs)*1.084*var(--u));-webkit-text-stroke:calc(7*var(--u)) #000;paint-order:stroke fill;stroke-linejoin:round}
+.fund-text p,.fund-text h3{margin:0;font-weight:400}.fund-text h3{font-size:1.16em;font-weight:900}
+.fund-text a{text-decoration:underline;text-decoration-thickness:calc(3*var(--u));text-underline-offset:calc(3*var(--u))}
