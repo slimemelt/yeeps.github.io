@@ -52,7 +52,7 @@
 .footer-discord-link{border-radius:50%;left:74.212%;top:calc(176.00*var(--u));width:20.630%;height:calc(216.00*var(--u))}
 
 /* fund */
-.fund-bg{z-index:1;left:0;top:0;width:100%}
+.fund-shapes{z-index:1;left:calc(-386.10*var(--u));top:calc(-417.85*var(--u));width:calc(1584.43*var(--u))}
 .fund-logo{z-index:2;left:13.801%;top:calc(185.50*var(--u));width:71.347%}
 .fund-intro-text{--fs:31;left:5.253%;top:calc(456*var(--u));width:89.489%;height:calc(471*var(--u))}
 .fund-why-heading{z-index:2;left:27.889%;top:calc(974.50*var(--u));width:44.222%}
