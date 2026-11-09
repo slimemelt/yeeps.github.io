@@ -20,6 +20,10 @@ ES modules need http, not `file://`:
 
 `js/config.js` holds `API_BASE`. Empty: the admin at `#admin` needs no login and saves to localStorage (preview only). Set it to the deployed Worker URL (see `../worker`) for real login and shared saves.
 
+## Short links
+
+Redirects such as `yeeps.bloomnetworks.net/discord` are managed in the admin (Redirects tab) and stored by the Worker. GitHub Pages serves `404.html` for any path that doesn't exist; it asks the Worker for the saved links and forwards the visitor, or shows "Page not found". The same `404.html` lives in the Bloom and Monarch repos.
+
 ## Deploy (GitHub Pages)
 
 1. Push this folder as its own repo under `slimemelt` (the `slimemelt.github.io` repo is already used by another project).

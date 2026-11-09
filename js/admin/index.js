@@ -4,6 +4,7 @@ import { store } from "../store.js";
 import { getContent, getDefaults, setContent } from "../content.js";
 import { TABS } from "./templates.js";
 import { pickImage, imageToUrl } from "./images.js";
+import { loadRedirects, onRedirectInput, onRedirectClick } from "./redirects.js";
 
 const BANNER_WIDTH = 1840;
 const CARD_WIDTH = 1100;
@@ -40,6 +41,10 @@ function render() {
     ([key, label]) => `<button data-tab="${key}" aria-pressed="${key === tab}">${label}</button>`
   ).join("");
   body.innerHTML = TABS.find(([key]) => key === tab)[2](draft);
+  // Redirects are shared by all sites and have their own save button.
+  const sharedTab = tab === "redirects";
+  $("admin-site").hidden = sharedTab;
+  document.querySelector(".admin .savebar").hidden = sharedTab;
 }
 
 function showSignedIn(signedIn) {
@@ -53,6 +58,7 @@ function showSignedIn(signedIn) {
     : '<span class="tag">No backend connected</span><span class="tag">Changes stay in this browser</span>';
   if (signedIn) {
     loadDraft();
+    loadRedirects().then(render);
     render();
   }
 }
@@ -152,8 +158,7 @@ async function save() {
     await store.save(site, data);
   } catch (error) {
     if (error.status === 401) {
-      showSignedIn(false);
-      toast("Your session ended. Sign in again.");
+      signedOut();
     } else {
       toast(`Couldn’t save (${error.message}).`);
     }
@@ -163,6 +168,11 @@ async function save() {
   loadDraft();
   render();
   toast(API_BASE ? "Saved. The live site is updated." : "Saved in this browser.");
+}
+
+function signedOut() {
+  showSignedIn(false);
+  toast("Your session ended. Sign in again.");
 }
 
 /* ---------- wiring ---------- */
@@ -209,6 +219,7 @@ function wire() {
 
   body.addEventListener("input", (event) => {
     const field = event.target;
+    if (field.closest(".redirects")) return onRedirectInput(field);
     markDirty();
     if (field.dataset.set) {
       draft.settings[field.dataset.set] = field.value;
@@ -222,6 +233,11 @@ function wire() {
   });
 
   body.addEventListener("click", (event) => {
+    const redirect = event.target.closest("[data-redirect]");
+    if (redirect) {
+      onRedirectClick(redirect, { render, toast, signedOut });
+      return;
+    }
     const button = event.target.closest("button[data-act]");
     if (button) actions[button.dataset.act]?.(button, button.closest("[data-i]"));
   });
