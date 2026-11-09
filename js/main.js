@@ -4,7 +4,7 @@ import { state, rememberSite } from "./state.js";
 import { loadContent, onContentChange } from "./content.js";
 import { initMenu, setMenuOpen } from "./menu.js";
 import { route, updateTitle } from "./router.js";
-import { showLoader, hideLoaderWhenReady } from "./loader.js";
+import { whileLoading } from "./loader.js";
 import { renderHome, resetFeatured, fitAboutText } from "./views/home.js";
 import { renderSchedulePage } from "./views/schedule.js";
 import { fitFundingsText } from "./views/fundings.js";
@@ -27,7 +27,6 @@ toggle.addEventListener("click", () => {
   rememberSite();
   resetFeatured();
   setMenuOpen(false);
-  showLoader(450);
   renderSite();
 });
 
@@ -42,8 +41,8 @@ addEventListener("resize", () => {
 
 async function boot() {
   initMenu();
-  hideLoaderWhenReady();
-  await loadContent();
+  whileLoading(new Promise((done) => (document.readyState === "complete" ? done() : addEventListener("load", done))));
+  await whileLoading(loadContent());
   renderSite();
   await route({ first: true });
   document.fonts?.ready.then(() => {

@@ -2,7 +2,6 @@ import { $, stage } from "./dom.js";
 import { ADMIN_ENABLED, ROUTES, VIEW_TITLES } from "./config.js";
 import { state, siteName } from "./state.js";
 import { placeUnderline } from "./menu.js";
-import { showLoader } from "./loader.js";
 import { ensurePlayer, pausePlayer } from "./views/player.js";
 import { fitFundingsText } from "./views/fundings.js";
 
@@ -34,7 +33,6 @@ export async function route({ first = false } = {}) {
   requestAnimationFrame(fitFundingsText);
 
   if (changed && !first) {
-    showLoader(450);
     scrollTo(0, 0);
     // in-page anchors such as #home-schedule
     const anchor = view === "home" && hash.length > 1 ? document.getElementById(hash.slice(1)) : null;

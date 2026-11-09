@@ -1,3 +1,4 @@
+import { whileLoading } from "../loader.js";
 import { $ } from "../dom.js";
 import { STREAM_URL, VIDEOJS_URL } from "../config.js";
 
@@ -32,7 +33,7 @@ function setToggleIcon(playing) {
 export async function ensurePlayer() {
   if (player || starting) return;
   starting = true;
-  const loaded = await loadVideoJs();
+  const loaded = await whileLoading(loadVideoJs());
   starting = false;
   if (!loaded || !window.videojs) {
     box.classList.add("has-error");
