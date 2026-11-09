@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>One moment…</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<style>
+  html, body { height: 100%; margin: 0; background: #fff; color: #131095; font-family: system-ui, sans-serif; }
+  main { min-height: 100%; display: grid; place-content: center; gap: 12px; padding: 24px; text-align: center; }
+  h1 { margin: 0; font-size: clamp(28px, 6vw, 44px); }
+  p { margin: 0; font-size: 18px; }
+  a { color: #e50081; }
+</style>
+</head>
+<body>
+<main>
+  <h1 id="title">One moment…</h1>
+  <p id="detail"></p>
+</main>
+<script type="module">
+  // GitHub Pages serves this file for any path that doesn't exist. If the path is a short link
+  // saved in the admin (for example /discord), forward the visitor; otherwise show "not found".
+  const API = "https://api.bloomnetworks.net";
+
+  const host = location.hostname.replace(/^www\./, "");
+  const path = decodeURIComponent(location.pathname).replace(/^\/+|\/+$/g, "").toLowerCase();
+
+  function showNotFound() {
+    document.title = "Page not found";
+    document.getElementById("title").textContent = "Page not found";
+    document.getElementById("detail").innerHTML = 'Nothing lives at this address. <a href="/">Go to the home page</a>.';
+  }
+
+  async function findDestination() {
+    const response = await fetch(`${API}/redirects`);
+    if (!response.ok) throw new Error(`redirects failed (${response.status})`);
+    const { redirects } = await response.json();
+    return redirects.find((row) => row.host === host && row.path === path)?.url;
+  }
+
+  try {
+    const destination = await findDestination();
+    if (destination) location.replace(destination);
+    else showNotFound();
+  } catch {
+    showNotFound();
+  }
+</script>
+</body>
+</html>

@@ -12,6 +12,9 @@ export const API_BASE = "https://api.bloomnetworks.net";
 const isLocalHost = ["localhost", "127.0.0.1"].includes(location.hostname);
 export const ADMIN_ENABLED = Boolean(API_BASE) || isLocalHost;
 
+// Sites that can have short links (must match HOSTS in the Worker).
+export const REDIRECT_HOSTS = ["bloomnetworks.net", "yeeps.bloomnetworks.net", "monarch.bloomnetworks.net"];
+
 export const SITES = {
   ch: { key: "ch", name: "Yeeps Channel", file: "channel.json" },
   ds: { key: "ds", name: "Yeeps Don’t Sleep", file: "dont-sleep.json" },

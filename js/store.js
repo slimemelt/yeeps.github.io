@@ -9,6 +9,7 @@ async function request(path, options = {}) {
   if (!response.ok) {
     const error = new Error(`${options.method || "GET"} ${path} failed (${response.status})`);
     error.status = response.status;
+    error.message = (await response.json().catch(() => null))?.error ?? error.message;
     throw error;
   }
   return response;
@@ -29,6 +30,16 @@ const remote = {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
+    });
+  },
+  async loadRedirects() {
+    return (await (await request("/redirects")).json()).redirects;
+  },
+  async saveRedirects(redirects) {
+    await request("/redirects", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ redirects }),
     });
   },
   async uploadImage(blob) {
@@ -65,6 +76,16 @@ const local = {
   },
   async save(site, data) {
     localStorage.setItem(draftKey(site), JSON.stringify(data));
+  },
+  async loadRedirects() {
+    try {
+      return JSON.parse(localStorage.getItem("ypch-redirects")) ?? [];
+    } catch {
+      return [];
+    }
+  },
+  async saveRedirects(redirects) {
+    localStorage.setItem("ypch-redirects", JSON.stringify(redirects));
   },
   uploadImage(blob) {
     return new Promise((resolve, reject) => {

@@ -1,4 +1,5 @@
 import { escapeHtml as e } from "../dom.js";
+import { redirectsHtml } from "./redirects.js";
 
 const itemActions = () =>
   `<div class="item-actions">
@@ -101,5 +102,6 @@ export const TABS = [
   ["schedule", "Schedule", scheduleTab],
   ["shows", "Featured shows", showsTab],
   ["text", "Page text", textTab],
+  ["redirects", "Redirects", redirectsHtml],
   ["backup", "Backup", backupTab],
 ];
