@@ -1,3 +1,5 @@
+html[data-view=schedule][data-site=ch] body{background:var(--yellow)}
+html[data-view=schedule][data-site=ch] #background{display:none}
 /* Schedule view */
 /* schedule page */
 .schedule-column{position:relative;width:calc(318*var(--t));margin:0 auto}
