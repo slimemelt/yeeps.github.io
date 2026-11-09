@@ -89,8 +89,9 @@
 .schedule-badge-ds{left:calc(210.00*var(--t));top:calc(16.00*var(--t));width:calc(92.00*var(--t))}
 
 /* menu */
-.menu-panel{z-index:10;left:0;top:0;width:100%;height:calc(1130*var(--u))}
-.menu-panel-art{left:0;top:0;width:100%}
+.menu-panel{z-index:10;left:0;top:0;width:100%;height:calc(1140*var(--u))}
+/* Full panel artwork: the flower hangs past the panel, and the top 1073 art units sit above the page */
+.menu-panel-art{left:0;top:calc(-159.22*var(--u));width:calc(1592.06*var(--u))}
 .menu-home{left:2.961%;top:13.805%;width:23.782%;height:9.027%}
 .menu-schedule{left:2.770%;top:25.133%;width:46.418%;height:9.115%}
 .menu-watch{left:2.770%;top:35.487%;width:27.316%;height:9.381%}

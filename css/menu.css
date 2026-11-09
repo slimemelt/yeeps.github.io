@@ -1,6 +1,6 @@
 /* Menu panel, site toggle, loading screen */
 /* menu / loader */
-#menu{overflow:hidden;visibility:hidden;transition:visibility 0s .4s;pointer-events:none}
+#menu{visibility:hidden;transition:visibility 0s .4s;pointer-events:none}
 #menu .in{position:absolute;inset:0;transform:translateY(-102%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 #menu.open{visibility:visible;transition:none;pointer-events:auto} #menu.open .in{transform:none}
 #menu .in>img{position:absolute;display:block;max-width:none} #menu a{position:absolute;display:block;border-radius:calc(10*var(--u))}

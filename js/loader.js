@@ -1,13 +1,21 @@
 import { $ } from "./dom.js";
 
+// The loading screen only appears when something is actually slow.
+const SLOW_MS = 400;
+
 const loader = $("loader");
+let pending = 0;
+let timer;
 
-export function showLoader(ms) {
-  loader.classList.remove("off");
-  setTimeout(() => loader.classList.add("off"), ms);
-}
-
-export function hideLoaderWhenReady() {
-  const hide = () => setTimeout(() => loader.classList.add("off"), 750);
-  document.readyState === "complete" ? hide() : addEventListener("load", hide);
+/** Runs a task and shows the loading screen if it is still going after SLOW_MS. */
+export async function whileLoading(task) {
+  if (pending++ === 0) timer = setTimeout(() => loader.classList.remove("off"), SLOW_MS);
+  try {
+    return await task;
+  } finally {
+    if (--pending === 0) {
+      clearTimeout(timer);
+      loader.classList.add("off");
+    }
+  }
 }
