@@ -1,41 +1,79 @@
-/* Admin view */
-/* admin */
-.admin{width:min(94%,940px);margin:0 auto;font-family:"Londrina Solid","Arial Narrow",sans-serif;font-weight:400;font-size:20px;line-height:1.15;color:var(--navy)}
-.stage[data-site=ds] .admin{color:#fff}
-.admin h1{font-weight:900;font-size:clamp(54px,9vw,88px);line-height:.9;margin:0 0 8px;text-transform:uppercase}
-.admin .note{margin:0 0 16px;font-size:19px;color:#2b3439}
-.stage[data-site=ds] .admin .note{color:#d8d9ff}
-.admin .tag{display:inline-block;padding:4px 14px 3px;border-radius:99px;background:var(--blue);color:#fff;font-size:17px;margin:0 8px 8px 0;text-transform:uppercase}
-.admin .tag.ok{background:var(--green);color:var(--navy)}
-.admin .seg,.admin .tabs{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
-.admin .seg button,.admin .tabs button{padding:9px 22px 7px;border-radius:99px;border:4px solid currentColor;background:transparent;font-size:22px;text-transform:uppercase;line-height:1;transition:transform .15s}
-.admin .seg button:hover,.admin .tabs button:hover{transform:translateY(-2px)}
-.admin .seg button[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
-.stage[data-site=ds] .admin .seg button[aria-pressed=true]{background:#fff;border-color:#fff;color:var(--navy)}
-.admin .tabs button[aria-pressed=true]{background:var(--pink);border-color:var(--pink);color:#fff}
-.admin .panel{background:var(--navy);color:#fff;border:6px solid var(--yellow);border-radius:34px;padding:22px 26px;margin:16px 0}
-.admin .panel .note{color:#c9c8ff}
-.admin .item{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;padding:18px 0;border-top:3px dashed rgba(255,255,255,.25)}
-.admin .item:first-of-type{border-top:0;padding-top:4px}
-.admin .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
-.admin .fields .wide{grid-column:1/-1}
-.admin label{display:block;font-size:17px;color:var(--yellow);text-transform:uppercase;letter-spacing:.05em}
-.admin input[type=text],.admin textarea{display:block;width:100%;margin-top:5px;padding:9px 16px 7px;border:0;border-radius:18px;background:#fff;color:var(--navy);font:inherit;font-size:21px;outline:0}
-.admin select{display:block;width:100%;margin-top:5px;padding:9px 16px 7px;border:0;border-radius:18px;background:#fff;color:var(--navy);font:inherit;font-size:21px;outline:0}
-.admin select:focus{box-shadow:0 0 0 4px var(--pink)}
-.admin input[type=text]:focus,.admin textarea:focus{box-shadow:0 0 0 4px var(--pink)}
-.admin ::placeholder{color:#8b8bc0;opacity:1}
-.admin textarea{min-height:90px;resize:vertical;line-height:1.1}
-.admin .check{display:inline-flex;align-items:center;gap:8px;margin:2px 16px 0 0;font-size:19px;color:#fff;text-transform:none;letter-spacing:0}
-.admin input[type=checkbox]{accent-color:var(--pink);width:20px;height:20px;margin:0}
-.admin .item-actions{display:flex;gap:8px}
-.admin .item-actions button{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:24px;line-height:1;transition:transform .15s}
-.admin .item-actions button[data-act=del],.admin .item-actions button[data-redirect=del]{background:var(--pink)}
-.admin .btn{padding:10px 22px 8px;border-radius:99px;background:var(--yellow);color:var(--navy);font-size:21px;text-transform:uppercase;display:inline-block;line-height:1;transition:transform .15s}
-.admin .btn:hover,.admin .item-actions button:hover,.admin .btn-primary:hover{transform:translateY(-2px)}
-.admin .btn-primary{padding:13px 34px 11px;border-radius:99px;background:var(--pink);color:#fff;font-size:26px;text-transform:uppercase;line-height:1;display:inline-block;transition:transform .15s}
-.admin .thumb{width:200px;max-width:100%;aspect-ratio:4/1;object-fit:cover;border-radius:16px;border:4px solid #fff;background:#000;display:block;margin-bottom:10px}
-.admin .thumb.card{aspect-ratio:546/220}
-.admin .savebar{position:sticky;bottom:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:12px 18px;margin:20px 0;background:var(--navy);border:5px solid var(--yellow);border-radius:99px;z-index:5}
-.admin .savebar .btn{background:#fff}
-.admin #ad-toast{color:var(--green);font-size:20px}
+/* Admin view: a plain working tool, deliberately quieter than the public pages. */
+.admin {
+  --line: #dcdce8;
+  --muted: #5b5b73;
+  --field: #f6f6fb;
+  width: min(94%, 760px);
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--navy);
+}
+.stage[data-site=ds] .admin { color: #fff; }
+
+.admin h1 { margin: 0 0 4px; font-size: 30px; font-weight: 700; line-height: 1.2; }
+.admin .note { margin: 0 0 14px; font-size: 14px; color: var(--muted); }
+.stage[data-site=ds] .admin > .note { color: #c4c4dc; }
+
+/* status chips */
+.admin .tag { display: inline-block; margin: 0 6px 6px 0; padding: 2px 10px; border-radius: 99px; background: #e9e9f4; color: var(--navy); font-size: 12.5px; font-weight: 500; }
+.admin .tag.ok { background: #d8f7e0; color: #14532d; }
+
+/* site switch and tabs */
+.admin .seg { display: inline-flex; margin: 12px 0 4px; padding: 3px; border-radius: 10px; background: #e9e9f4; }
+.admin .seg button { padding: 6px 14px; border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--navy); }
+.admin .seg button[aria-pressed=true] { background: #fff; box-shadow: 0 1px 2px rgba(19, 16, 149, .18); }
+.admin .tabs { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 14px 0 16px; border-bottom: 1px solid var(--line); }
+.stage[data-site=ds] .admin .tabs { border-color: #3a3a5c; }
+.admin .tabs button { margin-bottom: -1px; padding: 8px 2px; border-bottom: 2px solid transparent; font-size: 15px; font-weight: 500; color: var(--muted); }
+.stage[data-site=ds] .admin .tabs button { color: #c4c4dc; }
+.admin .tabs button:hover { color: var(--navy); }
+.stage[data-site=ds] .admin .tabs button:hover { color: #fff; }
+.admin .tabs button[aria-pressed=true] { border-color: var(--pink); color: var(--navy); }
+.stage[data-site=ds] .admin .tabs button[aria-pressed=true] { color: #fff; }
+
+/* cards */
+.admin .panel { margin: 0 0 16px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--navy); }
+.admin .panel .note { margin-bottom: 12px; }
+.admin .item { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: start; padding: 16px 0; border-top: 1px solid var(--line); }
+.admin .item:first-of-type { padding-top: 0; border-top: 0; }
+.admin .fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.admin .fields .wide { grid-column: 1 / -1; }
+
+/* form controls */
+.admin label { display: block; font-size: 13px; font-weight: 500; color: var(--muted); }
+.admin input[type=text], .admin input[type=password], .admin select, .admin textarea {
+  display: block; width: 100%; margin-top: 4px; padding: 8px 10px; box-sizing: border-box;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--field);
+  color: var(--navy); font: inherit; font-size: 15px; outline: 0;
+}
+.admin input:focus, .admin select:focus, .admin textarea:focus { border-color: var(--navy); background: #fff; box-shadow: 0 0 0 3px rgba(19, 16, 149, .15); }
+.admin ::placeholder { color: #9a9ab5; opacity: 1; }
+.admin textarea { min-height: 84px; resize: vertical; }
+.admin .check { display: inline-flex; align-items: center; gap: 8px; margin: 0 16px 0 0; font-size: 14px; font-weight: 400; color: var(--navy); }
+.admin input[type=checkbox] { width: 16px; height: 16px; margin: 0; accent-color: var(--navy); }
+
+/* buttons */
+.admin .btn, .admin .btn-primary { display: inline-block; padding: 8px 14px; border-radius: 8px; font-size: 14px; font-weight: 600; line-height: 1.2; }
+.admin .btn { border: 1px solid var(--line); background: #fff; color: var(--navy); }
+.admin .btn:hover { border-color: var(--navy); }
+.admin .btn-primary { background: var(--navy); color: #fff; }
+.admin .btn-primary:hover { background: #1d19b8; }
+.admin :is(.btn, .btn-primary, button):focus-visible { outline: 3px solid rgba(19, 16, 149, .35); outline-offset: 2px; }
+.admin .panel > p:last-child { margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+
+.admin .item-actions { display: flex; gap: 4px; }
+.admin .item-actions button { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; font-size: 16px; line-height: 1; color: var(--muted); }
+.admin .item-actions button:hover { background: #ececf7; color: var(--navy); }
+.admin .item-actions :is([data-act=del], [data-redirect=del]):hover { background: #fde4ee; color: var(--pink); }
+
+.admin .thumb { display: block; width: 200px; max-width: 100%; aspect-ratio: 4 / 1; margin-bottom: 8px; border: 1px solid var(--line); border-radius: 8px; background: #000; object-fit: cover; }
+.admin .thumb.card { aspect-ratio: 546 / 220; }
+
+/* save bar */
+.admin .savebar { position: sticky; bottom: 12px; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 20px 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: #fff; box-shadow: 0 6px 20px rgba(19, 16, 149, .12); }
+.admin .savebar #admin-signout { margin-left: auto; }
+.admin #admin-toast { font-size: 14px; color: #14532d; }
+.admin #admin-login-error { margin: 12px 0 0; color: #b4004e; }
+.admin #admin-login { max-width: 380px; }
