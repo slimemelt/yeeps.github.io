@@ -21,7 +21,8 @@
 .loader-dots{left:85.200%;top:95.380%;width:14.295%}
 
 /* home */
-.home-bg{left:-5.731%;top:calc(0.00*var(--u));width:111.461%}
+/* Full, uncropped artwork: 1 art unit = 0.148386u, origin offset by the shapes that hang outside the page */
+.home-shapes{left:calc(-386.10*var(--u));top:calc(-417.85*var(--u));width:calc(1584.43*var(--u))}
 .home-banner{z-index:2;left:5.540%;top:calc(159.00*var(--u));width:87.775%;height:calc(227.00*var(--u))}
 .home-dots{z-index:3;left:7.354%;top:calc(356*var(--u))}
 .home-logo-ch{left:40.764%;top:calc(438.40*var(--u));width:18.491%}
@@ -46,6 +47,7 @@
 .home-featured-card{left:23.400%;top:calc(1791.00*var(--u));width:52.149%;height:calc(220.00*var(--u))}
 .home-featured-name{left:11.461%;top:calc(2036.00*var(--u));width:77.077%}
 .home-featured-blurb{left:13.276%;width:73.448%}
+.footer-discord-disc{left:calc(776.80*var(--u));top:calc(175.80*var(--u));width:calc(215.60*var(--u));aspect-ratio:1;border-radius:50%;background:#2b3439}
 .footer-discord-mark{left:81.184%;top:calc(255.00*var(--u));width:6.686%}
 .footer-discord-link{border-radius:50%;left:74.212%;top:calc(176.00*var(--u));width:20.630%;height:calc(216.00*var(--u))}
 
@@ -59,7 +61,7 @@
 .fund-pitch-text{--fs:31;left:4.4%;top:calc(1570*var(--u));width:91.2%;height:calc(168*var(--u))}
 
 /* watch */
-.watch-bg{left:-5.731%;top:calc(0.00*var(--u));width:111.461%}
+.watch-bg{left:calc(-415.48*var(--u));top:calc(-445.15*var(--u));width:calc(1647.07*var(--u))}
 .watch-title{left:30.411%;top:calc(157.60*var(--u));width:34.193%;z-index:3}
 .watch-player{left:7.354%;top:calc(336.00*var(--u));width:85.196%;height:calc(507.00*var(--u))}
 .watch-schedule-card{left:7.736%;top:calc(880.00*var(--u));width:85.196%;height:calc(450.00*var(--u))}
@@ -71,7 +73,7 @@
 .watch-discord{left:16.332%;top:calc(1779.00*var(--u));width:67.335%;height:calc(137.50*var(--u))}
 
 /* dmca */
-.dmca-bg{left:-5.731%;top:calc(0.00*var(--u));width:111.461%}
+.dmca-bg{left:calc(-415.48*var(--u));top:calc(-445.15*var(--u));width:calc(1647.07*var(--u))}
 .dmca-title-ch{left:6.762%;top:calc(209.80*var(--u));width:19.255%}
 .dmca-title-ds{left:6.762%;top:calc(209.80*var(--u));width:19.255%}
 .dmca-popup-ch{left:6.437%;top:calc(305.00*var(--u));width:81.490%}
