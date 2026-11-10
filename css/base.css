@@ -1,6 +1,6 @@
 /* Design tokens, reset and page-level rules shared by every view. */
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--sw:min(100vw,520px);--navy:#131095;--blue:#00a1f5;--pink:#e50081;--yellow:#f9b10f;--green:#45f46e}
-@media (min-width:821px){:root{--sw:min(100vw,720px)}}
+@media (min-width:821px){:root{--sw:min(100vw,880px)}}
 html{scroll-padding-top:env(safe-area-inset-top,0px)} *{box-sizing:border-box}
 body{margin:0;position:relative;background:#fff;overflow-x:hidden;font-family:"Londrina Solid","Arial Narrow",system-ui,sans-serif;font-weight:400}
 html[data-site=ds] body{background:#000}
