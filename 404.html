@@ -6,16 +6,20 @@
 <meta name="robots" content="noindex">
 <title>one moment…</title>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;900&display=swap">
 <style>
-  html, body { height: 100%; margin: 0; background: #fff; color: #131095; font-family: system-ui, sans-serif; }
-  main { min-height: 100%; display: grid; place-content: center; gap: 12px; padding: 24px; text-align: center; }
-  h1 { margin: 0; font-size: clamp(28px, 6vw, 44px); }
-  p { margin: 0; font-size: 18px; }
-  a { color: #e50081; }
+  html, body { height: 100%; margin: 0; background: #f9b10f; color: #131095; font-family: "Londrina Solid", "Arial Narrow", sans-serif; }
+  main { min-height: 100%; display: grid; place-content: center; justify-items: center; gap: 6px; padding: 24px; text-align: center; }
+  img { width: 88px; height: 88px; margin-bottom: 10px; }
+  h1 { margin: 0; font-size: clamp(56px, 14vw, 120px); font-weight: 900; line-height: .9; text-transform: uppercase; }
+  p { max-width: 20em; margin: 0; font-size: clamp(22px, 5vw, 30px); font-weight: 300; line-height: 1.05; color: #e50081; }
+  a { display: block; margin-top: 12px; color: #131095; font-weight: 900; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 3px; }
 </style>
 </head>
 <body>
 <main>
+  <img src="/assets/favicon.svg" alt="">
   <h1 id="title">one moment…</h1>
   <p id="detail"></p>
 </main>
@@ -31,7 +35,7 @@
     document.title = "Page not found";
     document.title = "nothing here";
     document.getElementById("title").textContent = "nothing here";
-    document.getElementById("detail").innerHTML = 'either this page was deleted or moved or ya don’t know where you’re going. <a href="/">take me home</a>';
+    document.getElementById("detail").innerHTML = 'either this page was deleted or moved or ya don’t know where you’re going.<a href="/">take me home</a>';
   }
 
   async function findDestination() {
