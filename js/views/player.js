@@ -1,105 +1,52 @@
 import { whileLoading } from "../loader.js";
 import { $ } from "../dom.js";
-import { STREAM_URL, VIDEOJS_URL } from "../config.js";
-
-const ICONS = { play: "assets/icons/play.svg", pause: "assets/icons/pause.svg" };
+import { STREAM_URL, HLSJS_URL } from "../config.js";
 
 const box = $("player");
-const bigPlay = $("player-big-play");
-const toggle = $("player-toggle");
-const mute = $("player-mute");
-const volume = $("player-volume");
-const fullscreen = $("player-fullscreen");
+const video = $("stream-video");
 
-let player = null;
-let starting = false;
+let hls = null;
+let started = false;
 
-function loadVideoJs() {
+function loadHlsJs() {
   return new Promise((resolve) => {
-    if (window.videojs) return resolve(true);
+    if (window.Hls) return resolve(true);
     const script = document.createElement("script");
-    script.src = VIDEOJS_URL;
+    script.src = HLSJS_URL;
     script.onload = () => resolve(true);
     script.onerror = () => resolve(false);
     document.head.append(script);
   });
 }
 
-function setToggleIcon(playing) {
-  toggle.firstElementChild.src = playing ? ICONS.pause : ICONS.play;
-  toggle.setAttribute("aria-label", playing ? "Pause" : "Play");
+function fail() {
+  box.classList.add("has-error");
 }
 
+// hls.js where the browser has Media Source Extensions; otherwise (iPhone Safari) the native HLS player.
 export async function ensurePlayer() {
-  if (player || starting) return;
-  starting = true;
-  const loaded = await whileLoading(loadVideoJs());
-  starting = false;
-  if (!loaded || !window.videojs) {
-    box.classList.add("has-error");
-    return;
+  if (started) return;
+  started = true;
+  const loaded = await whileLoading(loadHlsJs());
+  if (loaded && window.Hls?.isSupported()) {
+    hls = new window.Hls();
+    hls.on(window.Hls.Events.ERROR, (_, data) => data.fatal && fail());
+    hls.loadSource(STREAM_URL);
+    hls.attachMedia(video);
+  } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+    video.src = STREAM_URL;
+  } else {
+    started = false;
+    fail();
   }
-  player = window.videojs("stream-video", {
-    controls: false,
-    preload: "auto",
-    playsinline: true,
-    loadingSpinner: false,
-    bigPlayButton: false,
-    html5: { vhs: { overrideNative: true } },
-  });
-  player.src({ src: STREAM_URL, type: "application/x-mpegURL" });
-  player.on("playing", () => {
-    box.classList.add("is-playing");
-    box.classList.remove("has-error");
-    setToggleIcon(true);
-  });
-  player.on("pause", () => setToggleIcon(false));
-  player.on("error", () => {
-    box.classList.add("has-error");
-    box.classList.remove("is-playing");
-  });
-}
-
-async function start() {
-  await ensurePlayer();
-  if (!player) return;
-  const attempt = player.play();
-  if (attempt?.catch) attempt.catch(() => box.classList.add("has-error"));
 }
 
 export function pausePlayer() {
-  player?.pause();
+  video.pause();
 }
 
-bigPlay.addEventListener("click", start);
-toggle.addEventListener("click", () => player && (player.paused() ? player.play() : player.pause()));
-
-mute.addEventListener("click", () => {
-  if (!player) return;
-  player.muted(!player.muted());
-  mute.classList.toggle("is-muted", player.muted());
+video.addEventListener("play", () => {
+  ensurePlayer();
+  box.classList.remove("has-error");
 });
-
-volume.addEventListener("input", () => {
-  if (!player) return;
-  player.volume(Number(volume.value));
-  player.muted(Number(volume.value) === 0);
-  mute.classList.toggle("is-muted", player.muted());
-});
-
-fullscreen.addEventListener("click", () => {
-  if (!player) return;
-  player.isFullscreen() ? player.exitFullscreen() : player.requestFullscreen();
-});
-
-// On touch screens the controls show for a few seconds after a tap.
-let touchTimer = 0;
-box.addEventListener(
-  "touchstart",
-  () => {
-    box.classList.add("is-touched");
-    clearTimeout(touchTimer);
-    touchTimer = setTimeout(() => box.classList.remove("is-touched"), 3500);
-  },
-  { passive: true }
-);
+video.addEventListener("error", fail);

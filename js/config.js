@@ -1,7 +1,7 @@
 // Everything that is likely to change between environments or releases lives here.
 
 export const STREAM_URL = "https://watch.mistlive.tv/hls/yeeps/playlist.m3u8";
-export const VIDEOJS_URL = "https://cdnjs.cloudflare.com/ajax/libs/video.js/8.10.0/video.min.js";
+export const HLSJS_URL = "https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.17/hls.min.js";
 
 // Base URL of the Cloudflare Worker (see /worker in the repo root).
 // Leave empty to run without a backend: the admin is then limited to local development.
