@@ -79,17 +79,8 @@
 <img class="layer view-watch only-ch watch-bg" alt="" src="assets/img/watch-bg.svg">
 <img class="art view-watch watch-title" src="assets/img/watch-title.webp" alt="Watch">
 <section class="player view-watch watch-player" id="player" aria-label="Live player">
-<video id="stream-video" class="video-js" playsinline preload="none"></video>
-<div class="player-veil"></div>
-<button class="player-big-play" id="player-big-play" aria-label="Play"><img src="assets/icons/play.svg" alt=""></button>
+<video id="stream-video" controls playsinline preload="none"></video>
 <p class="player-error" id="player-error" role="status">The stream can’t load right now.</p>
-<div class="player-bar">
-<button id="player-toggle" aria-label="Pause"><img src="assets/icons/pause.svg" alt=""></button>
-<span class="spacer"></span>
-<button id="player-mute" aria-label="Mute"><img src="assets/icons/volume.svg" alt=""></button>
-<input class="player-volume" id="player-volume" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume">
-<button id="player-fullscreen" aria-label="Fullscreen"><img src="assets/icons/fullscreen.svg" alt=""></button>
-</div>
 </section>
 <section class="schedule-card view-watch watch-schedule-card" id="wp-schedule" aria-label="Schedule"><div id="watch-rows"></div></section>
 <div class="schedule-fade view-watch watch-schedule-fade"></div>
