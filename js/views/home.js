@@ -23,9 +23,11 @@ function showSlide(index) {
     return;
   }
   slideIndex = (index + banners.length) % banners.length;
+  clearInterval(slideTimer);
   bannerImage.src = banners[slideIndex].src;
   bannerImage.alt = banners[slideIndex].alt || "";
   [...dots.children].forEach((dot, i) => dot.setAttribute("aria-current", i === slideIndex));
+  if (bannerImage.complete) restartAutoplay();
 }
 
 function restartAutoplay() {
@@ -41,17 +43,18 @@ function renderBanner() {
     ...banners.map((_, i) => {
       const dot = document.createElement("button");
       dot.setAttribute("aria-label", `Slide ${i + 1}`);
-      dot.addEventListener("click", () => {
-        showSlide(i);
-        restartAutoplay();
-      });
+      dot.addEventListener("click", () => showSlide(i));
       return dot;
     })
   );
   dots.style.display = banners.length > 1 ? "flex" : "none";
   showSlide(0);
-  restartAutoplay();
 }
+
+// Count the slide's time from when its image is actually on screen, so a slow first
+// banner is never skipped before anyone has seen it.
+bannerImage.addEventListener("load", restartAutoplay);
+bannerImage.addEventListener("error", restartAutoplay);
 
 /* ---------- featured shows ---------- */
 
