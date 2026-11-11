@@ -5,6 +5,7 @@ import { getContent, getDefaults, setContent } from "../content.js";
 import { TABS } from "./templates.js";
 import { pickImage, imageToUrl } from "./images.js";
 import { loadRedirects, onRedirectInput, onRedirectClick } from "./redirects.js";
+import { onPasswordSubmit } from "./password.js";
 
 const BANNER_WIDTH = 1840;
 const CARD_WIDTH = 1100;
@@ -41,8 +42,8 @@ function render() {
     ([key, label]) => `<button data-tab="${key}" aria-pressed="${key === tab}">${label}</button>`
   ).join("");
   body.innerHTML = TABS.find(([key]) => key === tab)[2](draft);
-  // Redirects are shared by all sites and have their own save button.
-  const sharedTab = tab === "redirects";
+  // Redirects and the password apply to every site and have their own buttons.
+  const sharedTab = tab === "redirects" || tab === "password";
   $("admin-site").hidden = sharedTab;
   document.querySelector(".admin .savebar").hidden = sharedTab;
 }
@@ -230,6 +231,11 @@ function wire() {
       draft[row.dataset.k][Number(row.dataset.i)][field.dataset.f] =
         field.type === "checkbox" ? field.checked : field.value;
     }
+  });
+
+  body.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (event.target.id === "admin-password") onPasswordSubmit(event.target, { signedOut });
   });
 
   body.addEventListener("click", (event) => {
