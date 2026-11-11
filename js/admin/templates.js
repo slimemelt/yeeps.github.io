@@ -1,3 +1,4 @@
+import { passwordHtml } from "./password.js";
 import { escapeHtml as e } from "../dom.js";
 import { redirectsHtml } from "./redirects.js";
 
@@ -104,4 +105,5 @@ export const TABS = [
   ["text", "Page text", textTab],
   ["redirects", "Redirects", redirectsHtml],
   ["backup", "Backup", backupTab],
+  ["password", "Password", passwordHtml],
 ];

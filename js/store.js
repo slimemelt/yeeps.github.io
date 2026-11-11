@@ -63,6 +63,13 @@ const remote = {
   async logout() {
     await request("/logout", { method: "POST" });
   },
+  async changePassword(current, next) {
+    await request("/password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ current, next }),
+    });
+  },
 };
 
 const local = {
@@ -98,6 +105,7 @@ const local = {
   session: async () => true,
   login: async () => {},
   logout: async () => {},
+  changePassword: async () => {},
 };
 
 export const store = API_BASE ? remote : local;
