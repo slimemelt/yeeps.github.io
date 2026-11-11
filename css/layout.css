@@ -1,6 +1,5 @@
 /* Positions of the art-directed elements, measured from the Figma export.
- * Units: --u is 1/1047 of the stage width, so every number below is a Figma pixel.
- * Generated once from the design files; edit by hand from here on. */
+ * Units: --u is 1/1047 of the stage width, so every number below is a Figma pixel. */
 
 /* shared */
 .header-home{z-index:2;left:5.79%;top:calc(30.6*var(--u));width:5.62%}
