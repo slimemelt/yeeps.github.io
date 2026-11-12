@@ -10,5 +10,5 @@ html[data-view=fund] #background{display:none}
 .fund-text{margin:0;text-align:center;color:#e3e3ff;z-index:3;font-size:calc(var(--fs)*var(--u));line-height:calc(var(--fs)*1.084*var(--u));-webkit-text-stroke:calc(6*var(--u)) #1b0a63;paint-order:stroke fill;stroke-linejoin:round;text-shadow:0 calc(3*var(--u)) calc(2*var(--u)) rgba(27,10,99,.5)}
 .fund-text p,.fund-text h3{margin:0;font-weight:400}.fund-text h3{margin-top:.9em;font-size:1.16em;font-weight:900}.fund-text h3+p{margin-top:0}
 .fund-text a{text-decoration:underline;text-decoration-thickness:calc(3*var(--u));text-underline-offset:calc(3*var(--u))}
-.fund-why-heading,.fund-pitch-heading{filter:drop-shadow(0 calc(6*var(--u)) calc(8*var(--u)) rgba(60,0,70,.35))}
+.fund-heading{z-index:2;left:0;width:100%;height:calc(134*var(--u));margin:0;text-align:center;text-transform:uppercase;font-size:calc(124*var(--u));font-weight:900;line-height:calc(134*var(--u));letter-spacing:calc(-3*var(--u));color:#2c343a;-webkit-text-stroke:calc(14*var(--u)) #fff;paint-order:stroke fill;stroke-linejoin:round;text-shadow:0 calc(6*var(--u)) calc(8*var(--u)) rgba(60,0,70,.35)}
 .fund-logo{filter:drop-shadow(0 calc(18*var(--u)) calc(26*var(--u)) rgba(70,0,70,.3))}
