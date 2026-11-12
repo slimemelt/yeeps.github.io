@@ -1,6 +1,6 @@
 /* Fundings view. The gradient is on the page so it reaches the window edges. */
 .stage[data-view=fund]{aspect-ratio:1047/2230}
-html[data-view=fund]{background-color:#e50081;background-repeat:no-repeat;background-image:
+html[data-view=fund]{min-height:100%;background-color:#e50081;background-repeat:no-repeat;background-image:
   radial-gradient(calc(var(--sw)*1.2) calc(var(--sw)*1.45) at calc(50% + var(--sw)/2) 0, #f9b10f 46%, rgba(249,177,15,0)),
   radial-gradient(calc(var(--sw)*1.9) calc(var(--sw)*3.2) at calc(50% - var(--sw)/2) 100%, #00a1f5 32%, #e50081 92%)}
 html[data-view=fund] body,.stage[data-view=fund]{background:transparent}
