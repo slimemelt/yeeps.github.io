@@ -10,27 +10,19 @@
 <feSpecularLighting in="soft" surfaceScale="6" specularConstant=".9" specularExponent="34" lighting-color="#fff" result="spec"><feDistantLight azimuth="225" elevation="52"/></feSpecularLighting>
 <feComposite in="spec" in2="SourceAlpha" operator="in" result="gloss"/>
 <feComposite in="toned" in2="gloss" operator="arithmetic" k2="1" k3=".8" result="body"/>
-<feGaussianBlur in="SourceAlpha" stdDeviation="1.6" result="c1"/><feOffset in="c1" dx="1.5" dy="3" result="c2"/>
-<feColorMatrix in="c2" values="0 0 0 0 .1 0 0 0 0 0 0 0 0 0 .25 0 0 0 .5 0" result="contact"/>
-<feGaussianBlur in="SourceAlpha" stdDeviation="9" result="f1"/><feOffset in="f1" dx="9" dy="18" result="f2"/>
-<feColorMatrix in="f2" values="0 0 0 0 .12 0 0 0 0 0 0 0 0 0 .3 0 0 0 .3 0" result="far"/>
-<feMerge><feMergeNode in="far"/><feMergeNode in="contact"/><feMergeNode in="body"/></feMerge>
+<feMerge><feMergeNode in="body"/></feMerge>
 </filter>
 <filter id="blob" x="-40" y="-40" width="1150" height="1770" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feGaussianBlur in="SourceAlpha" stdDeviation="24" result="soft"/>
-<feDiffuseLighting in="soft" surfaceScale="30" diffuseConstant="1.25" lighting-color="#fff" result="key"><feDistantLight azimuth="225" elevation="50"/></feDiffuseLighting>
+<feGaussianBlur in="SourceAlpha" stdDeviation="11" result="soft"/>
+<feDiffuseLighting in="soft" surfaceScale="10" diffuseConstant="1.25" lighting-color="#fff" result="key"><feDistantLight azimuth="225" elevation="50"/></feDiffuseLighting>
 <feComposite in="key" in2="SourceGraphic" operator="arithmetic" k1="1" result="lit"/>
-<feDiffuseLighting in="soft" surfaceScale="30" diffuseConstant=".5" lighting-color="#ffe6f6" result="bounce"><feDistantLight azimuth="40" elevation="18"/></feDiffuseLighting>
+<feDiffuseLighting in="soft" surfaceScale="10" diffuseConstant=".5" lighting-color="#ffe6f6" result="bounce"><feDistantLight azimuth="40" elevation="18"/></feDiffuseLighting>
 <feComposite in="bounce" in2="SourceAlpha" operator="in" result="bounceIn"/>
 <feComposite in="lit" in2="bounceIn" operator="arithmetic" k2="1" k3=".35" result="toned"/>
-<feSpecularLighting in="soft" surfaceScale="30" specularConstant=".9" specularExponent="26" lighting-color="#fff" result="spec"><feDistantLight azimuth="225" elevation="52"/></feSpecularLighting>
+<feSpecularLighting in="soft" surfaceScale="10" specularConstant=".9" specularExponent="26" lighting-color="#fff" result="spec"><feDistantLight azimuth="225" elevation="52"/></feSpecularLighting>
 <feComposite in="spec" in2="SourceAlpha" operator="in" result="gloss"/>
 <feComposite in="toned" in2="gloss" operator="arithmetic" k2="1" k3=".8" result="body"/>
-<feGaussianBlur in="SourceAlpha" stdDeviation="1.6" result="c1"/><feOffset in="c1" dx="1.5" dy="3" result="c2"/>
-<feColorMatrix in="c2" values="0 0 0 0 .1 0 0 0 0 0 0 0 0 0 .25 0 0 0 .5 0" result="contact"/>
-<feGaussianBlur in="SourceAlpha" stdDeviation="9" result="f1"/><feOffset in="f1" dx="9" dy="18" result="f2"/>
-<feColorMatrix in="f2" values="0 0 0 0 .12 0 0 0 0 0 0 0 0 0 .3 0 0 0 .3 0" result="far"/>
-<feMerge><feMergeNode in="far"/><feMergeNode in="contact"/><feMergeNode in="body"/></feMerge>
+<feMerge><feMergeNode in="body"/></feMerge>
 </filter>
 </defs>
 <g filter="url(#pipe)"><g transform="scale(.1)">

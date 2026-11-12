@@ -52,7 +52,7 @@
 
 /* fund */
 .fund-shapes{z-index:1;left:calc(-475.1*var(--u));top:calc(-506.9*var(--u));width:calc(1762.4*var(--u))}
-.fund-logo{z-index:3;left:calc(123.5*var(--u));top:calc(120*var(--u));width:calc(800*var(--u))}
+.fund-logo{z-index:3;left:calc(172*var(--u));top:calc(168*var(--u));width:calc(695*var(--u))}
 .fund-intro-text{--fs:31;left:5.25%;top:calc(456*var(--u));width:89.49%;height:calc(570*var(--u))}
 .fund-why-heading{top:calc(1068*var(--u))}
 .fund-why-text{--fs:31;left:4.39%;top:calc(1245*var(--u));width:91.21%;height:calc(204*var(--u))}
