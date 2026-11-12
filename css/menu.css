@@ -3,9 +3,12 @@
 #menu{visibility:hidden;transition:visibility 0s .4s;pointer-events:none}
 #menu .in{position:absolute;inset:0;transform:translateY(-102%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 #menu.open{visibility:visible;transition:none;pointer-events:auto} #menu.open .in{transform:none}
-#menu .in>img{position:absolute;display:block;max-width:none} #menu a{position:absolute;display:block;border-radius:calc(10*var(--u))}
+#menu .in>img{position:absolute;display:block;max-width:none}
+#menu a{position:absolute;display:block;border-radius:calc(10*var(--u))}
 #menu-button{display:block} #menu-button img{width:100%;display:block}
-#menu-button .cl{position:absolute;left:0;top:0;opacity:0;transition:opacity .2s;pointer-events:none} #menu-button.open .cl{opacity:1} #menu-button.open .bars{opacity:0}
+#menu-button .cl{position:absolute;left:0;top:0;opacity:0;transition:opacity .2s;pointer-events:none}
+#menu-button.open .cl{opacity:1}
+#menu-button.open .bars{opacity:0}
 #site-toggle img{width:100%;display:block} #site-toggle.hide{visibility:hidden}
 #loader{position:fixed;inset:0;z-index:100;background:#00a1f5;display:grid;place-items:center;transition:opacity .35s,visibility 0s .35s}
 #loader.off{opacity:0;visibility:hidden;pointer-events:none}
