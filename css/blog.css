@@ -3,7 +3,7 @@ html:is([data-view=blog],[data-view=post]) #background{display:none}
 html[data-site=ch]:is([data-view=blog],[data-view=post]) body{background:#fff}
 .stage:is([data-view=blog],[data-view=post]){aspect-ratio:auto;min-height:calc(2574*var(--u))}
 .stage:is([data-view=blog],[data-view=post]) :is(.footer-discord-disc,.footer-discord-mark,.footer-discord-link){display:block!important}
-.blog-shapes{z-index:1;left:0;top:0;width:100%}
+.blog-shapes{z-index:1;left:calc(-296.8*var(--u));top:0;width:calc(1513.5*var(--u))}
 .stage .page.blog{padding:calc(196*var(--u)) 0 calc(420*var(--u))}
 .blog{--card:#fff}
 .stage[data-site=ds] .blog{--card:#000}
