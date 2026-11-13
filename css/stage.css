@@ -24,7 +24,7 @@
 .header-home img{width:100%;display:block}
 .stage>*{position:absolute}
 .stage .page{position:relative;display:none;padding:calc(185*var(--u)) 0 calc(400*var(--u));z-index:3}
-.stage[data-view=schedule] #schedule-page,.stage[data-view=admin] #admin-page{display:block}
+.stage[data-view=schedule] #schedule-page,.stage[data-view=admin] #admin-page,.stage[data-view=apps] #apps-page,.stage[data-view=apply] #apply-page{display:block}
 /* Visibility: .only-ch / .only-ds follow the site toggle, .view-* follow the route. */
 .stage[data-site=ch] .only-ds,
 .stage[data-site=ds] .only-ch,
@@ -32,7 +32,8 @@
 .stage:not([data-view=dmca]) .view-dmca,
 .stage:not([data-view=watch]) .view-watch,
 .stage:not([data-view=fund]) .view-fund,
-.stage:is([data-view=schedule],[data-view=admin],[data-view=watch],[data-view=fund]) .hide-on-subpages{display:none!important}
+.stage:not([data-view=apps]):not([data-view=apply]) .view-apps,
+.stage:is([data-view=schedule],[data-view=admin],[data-view=watch],[data-view=fund],[data-view=apps],[data-view=apply]) .hide-on-subpages{display:none!important}
 img.art,img.layer{display:block;max-width:none;height:auto}
 img.layer{pointer-events:none}
 .fill-image{width:100%;height:100%;display:block}
