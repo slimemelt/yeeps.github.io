@@ -8,6 +8,7 @@ const SLIDE_MS = 6000;
 const SWIPE_PX = 40;
 
 const bannerImage = $("banner-image");
+const bannerLink = $("banner-link");
 const dots = $("dots");
 const featuredCard = $("featured-card");
 let slideIndex = 0;
@@ -16,16 +17,38 @@ let slideTimer = 0;
 
 /* ---------- banner carousel ---------- */
 
+// A banner only links somewhere when it has a web address or a page on this site.
+function setBannerLink(link) {
+  const isWeb = /^https?:\/\//i.test(link || "");
+  const isPage = /^#[\w/-]+$/.test(link || "");
+  if (!isWeb && !isPage) {
+    bannerLink.removeAttribute("href");
+    bannerLink.removeAttribute("target");
+    bannerLink.removeAttribute("rel");
+    return;
+  }
+  bannerLink.href = link;
+  if (isWeb) {
+    bannerLink.target = "_blank";
+    bannerLink.rel = "noopener";
+  } else {
+    bannerLink.removeAttribute("target");
+    bannerLink.removeAttribute("rel");
+  }
+}
+
 function showSlide(index) {
   const banners = getContent(state.site).banners;
   if (!banners.length) {
     bannerImage.removeAttribute("src");
+    setBannerLink("");
     return;
   }
   slideIndex = (index + banners.length) % banners.length;
   clearInterval(slideTimer);
   bannerImage.src = banners[slideIndex].src;
   bannerImage.alt = banners[slideIndex].alt || "";
+  setBannerLink(banners[slideIndex].link);
   [...dots.children].forEach((dot, i) => dot.setAttribute("aria-current", i === slideIndex));
   if (bannerImage.complete) restartAutoplay();
 }
