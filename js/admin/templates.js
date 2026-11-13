@@ -16,13 +16,14 @@ function bannersTab(draft) {
         <div>
           <img class="thumb" src="${e(banner.src)}" alt="">
           <label>Alt text (describe the banner)<input type="text" data-f="alt" value="${e(banner.alt)}"></label>
+          <label>Link (optional, leave empty for no link)<input type="text" data-f="link" value="${e(banner.link || "")}" placeholder="https://example.com or #schedule"></label>
         </div>
         ${itemActions()}
       </div>`
     )
     .join("");
   return `<div class="panel">
-    <p class="note">Banner images show at the top of the home page. Best size is about 4:1 wide (for example 2400×590). The first one shows first.</p>
+    <p class="note">Banner images show at the top of the home page. Best size is about 4:1 wide (for example 2400×590). The first one shows first. A banner with a link opens it when clicked; without one, clicking does nothing.</p>
     ${items || '<p class="note">No banners yet.</p>'}
     <p><button class="btn" data-act="add-image" data-k="banners">+ Add banner image</button></p>
   </div>`;
