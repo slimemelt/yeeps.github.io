@@ -18,3 +18,5 @@
 #loader .d{animation:dt 1.2s steps(1) infinite}
 @keyframes sw{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
 @keyframes dt{0%{clip-path:inset(0 100% 0 0)}25%{clip-path:inset(0 66% 0 0)}50%{clip-path:inset(0 33% 0 0)}75%{clip-path:inset(0 0 0 0)}}
+/* BLOG has no outlined letters in the panel art, so it is real text in the same font and colour */
+#menu a.menu-blog{display:flex;align-items:flex-start;padding-top:calc(1.5*var(--u));font-size:calc(116*var(--u));line-height:1;font-weight:900;text-transform:uppercase;color:#131095;text-decoration:none}

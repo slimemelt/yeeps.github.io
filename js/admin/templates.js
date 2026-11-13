@@ -77,6 +77,32 @@ function showsTab(draft) {
   </div>`;
 }
 
+function postsTab(draft) {
+  const items = draft.posts
+    .map(
+      (post, i) => `<div class="item" data-k="posts" data-i="${i}">
+        <div class="fields">
+          <div>${post.img ? `<img class="thumb thumb--wide" src="${e(post.img)}" alt="">` : ""}
+            <button class="btn" data-act="replace-image">${post.img ? "Replace image" : "Add cover image"}</button>
+            ${post.img ? '<button class="btn" data-act="clear-image">Remove image</button>' : ""}</div>
+          <label class="wide">Title<input type="text" data-f="title" value="${e(post.title)}"></label>
+          <label>Date<input type="date" data-f="date" value="${e(post.date)}"></label>
+          <label>Web address ending (blank = made from the title)<input type="text" data-f="id" value="${e(post.id)}" placeholder="my-first-post"></label>
+          <label class="wide">Short summary for the blog list (optional)<textarea data-f="summary">${e(post.summary)}</textarea></label>
+          <label class="wide">Post text<textarea class="tall" data-f="body">${e(post.body)}</textarea></label>
+          <span class="check wide"><input type="checkbox" data-f="published" ${post.published ? "checked" : ""}> Published (leave unticked to keep it as a draft)</span>
+        </div>
+        <div class="item-actions"><button data-act="del" aria-label="Delete">✕</button></div>
+      </div>`
+    )
+    .join("");
+  return `<div class="panel">
+    <p class="note">Posts appear on the blog page, newest first. The cover image shows on the post’s card (about 16:9). In the text, leave a blank line between paragraphs, start a line with <b>##</b> for a heading, wrap words in <b>**two stars**</b> for bold, and write <b>[link text](https://example.com)</b> for a link.</p>
+    ${items || '<p class="note">No posts yet.</p>'}
+    <p><button class="btn" data-act="add-post">+ New post</button></p>
+  </div>`;
+}
+
 function textTab(draft) {
   const s = draft.settings;
   return `<div class="panel"><div class="fields">
@@ -103,6 +129,7 @@ export const TABS = [
   ["banners", "Banners", bannersTab],
   ["schedule", "Schedule", scheduleTab],
   ["shows", "Featured shows", showsTab],
+  ["posts", "Blog", postsTab],
   ["text", "Page text", textTab],
   ["redirects", "Redirects", redirectsHtml],
   ["backup", "Backup", backupTab],

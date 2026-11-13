@@ -76,7 +76,7 @@ html[data-view=admin][data-site=ch] #background { display: none; }
 
 /* fields: a tinted strip with a navy base line, no box */
 .admin label { display: block; font-size: 20px; font-weight: 300; text-transform: uppercase; color: var(--accent); }
-.admin input[type=text], .admin input[type=password], .admin select, .admin textarea {
+.admin input[type=text], .admin input[type=date], .admin input[type=password], .admin select, .admin textarea {
   display: block; width: 100%; margin-top: 4px; padding: 9px 10px 6px; box-sizing: border-box;
   border: 0; border-bottom: 4px solid var(--ink); border-radius: 10px 10px 0 0; background: var(--tint);
   color: var(--ink); font: inherit; font-size: 24px; font-weight: 400; line-height: 1.1; text-transform: none; outline: 0;
@@ -84,6 +84,7 @@ html[data-view=admin][data-site=ch] #background { display: none; }
 .admin input:focus, .admin select:focus, .admin textarea:focus { border-bottom-color: var(--accent); }
 .admin ::placeholder { color: var(--ink); opacity: .4; }
 .admin textarea { min-height: 96px; resize: vertical; }
+.admin textarea.tall { min-height: 280px; }
 .admin select {
   appearance: none;
   padding-right: 34px;

@@ -4,6 +4,7 @@ import { state, siteName } from "./state.js";
 import { placeUnderline } from "./menu.js";
 import { ensurePlayer, pausePlayer } from "./views/player.js";
 import { fitFundingsText } from "./views/fundings.js";
+import { renderBlog } from "./views/blog.js";
 
 export function updateTitle() {
   const label = VIEW_TITLES[state.view];
@@ -21,10 +22,11 @@ export function applyView(view) {
 
 export async function route({ first = false } = {}) {
   const { hash } = location;
-  let view = ROUTES[hash] ?? "home";
+  let view = ROUTES[hash] ?? (hash.startsWith("#blog/") ? "post" : "home");
   if (view === "admin" && !ADMIN_ENABLED) view = "home";
   const changed = view !== state.view;
   applyView(view);
+  renderBlog();
 
   if (view === "watch") ensurePlayer();
   else pausePlayer();

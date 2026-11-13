@@ -117,11 +117,12 @@
 .menu-schedule{left:2.77%;top:25.13%;width:46.42%;height:9.12%}
 .menu-watch{left:2.77%;top:35.49%;width:27.32%;height:9.38%}
 .menu-fundings{left:2.96%;top:46.11%;width:45.65%;height:9.56%}
-.menu-discord{left:2.96%;top:58.76%;width:5.16%;height:4.25%}
-.menu-youtube{left:7.83%;top:58.76%;width:4.78%;height:4.25%}
-.menu-tiktok{left:12.51%;top:58.76%;width:3.34%;height:4.25%}
-.menu-instagram{left:15.76%;top:58.76%;width:4.01%;height:4.25%}
-.menu-settings{left:19.48%;top:58.76%;width:4.01%;height:4.25%}
+.menu-blog{left:2.96%;top:56.52%;width:23%;height:9.56%}
+.menu-discord{left:2.96%;top:69.17%;width:5.16%;height:4.25%}
+.menu-youtube{left:7.83%;top:69.17%;width:4.78%;height:4.25%}
+.menu-tiktok{left:12.51%;top:69.17%;width:3.34%;height:4.25%}
+.menu-instagram{left:15.76%;top:69.17%;width:4.01%;height:4.25%}
+.menu-settings{left:19.48%;top:69.17%;width:4.01%;height:4.25%}
 
 /* foot */
 .footer-scene-ch{left:-5.73%;top:calc(0*var(--u));width:111.46%}

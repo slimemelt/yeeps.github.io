@@ -31,8 +31,15 @@ function markDirty() {
   dirty = true;
 }
 
-function loadDraft() {
-  draft = clone(getContent(site));
+async function loadDraft() {
+  let saved = null;
+  try {
+    saved = await store.loadAdmin(site);
+  } catch {
+    /* fall back to what the page already loaded */
+  }
+  draft = clone({ ...getContent(site), ...(saved ?? {}) });
+  draft.posts ??= [];
   dirty = false;
 }
 
@@ -58,13 +65,35 @@ function showSignedIn(signedIn) {
       : '<span class="tag">Sign in to edit</span>'
     : '<span class="tag">No backend connected</span><span class="tag">Changes stay in this browser</span>';
   if (signedIn) {
-    loadDraft();
-    loadRedirects().then(render);
-    render();
+    loadDraft().then(() => {
+      render();
+      loadRedirects().then(render);
+    });
   }
 }
 
 /* ---------- edits ---------- */
+
+const today = () => new Date().toLocaleDateString("en-CA");
+
+const slugify = (text) =>
+  text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+
+// Every post needs a unique web address and a date before the Worker will take it.
+function tidyPosts(posts) {
+  const taken = new Set();
+  return posts.map((post) => {
+    const base = slugify(post.id || post.title) || "post";
+    let id = base;
+    for (let n = 2; taken.has(id); n++) id = `${base}-${n}`;
+    taken.add(id);
+    return { ...post, id, title: post.title.trim() || "Untitled post", date: post.date || today() };
+  });
+}
 
 function newEntry(type) {
   if (type === "show") return { type, time: "", title: "", by: "", desc: "", mature: false, flash: false };
@@ -122,7 +151,7 @@ async function copyBackup() {
 
 function importBackup() {
   try {
-    draft = clone({ ...getDefaults(site), ...JSON.parse($("admin-backup").value) });
+    draft = clone({ posts: [], ...getDefaults(site), ...JSON.parse($("admin-backup").value) });
     markDirty();
     render();
     toast("Imported. Press Save changes to keep it.");
@@ -141,12 +170,22 @@ const actions = {
     render();
   },
   "add-image": (button) => addImage(button),
+  "add-post": () => {
+    draft.posts.unshift({ id: "", title: "", date: today(), img: "", summary: "", body: "", published: false });
+    markDirty();
+    render();
+  },
+  "clear-image": (_, row) => {
+    draft.posts[Number(row.dataset.i)].img = "";
+    markDirty();
+    render();
+  },
   "replace-image": (_, row) => replaceImage(row),
   copy: copyBackup,
   import: importBackup,
   reset: () => {
     if (!confirm("Reset this site’s content to the original?")) return;
-    draft = getDefaults(site);
+    draft = { posts: [], ...getDefaults(site) };
     markDirty();
     render();
   },
@@ -155,6 +194,7 @@ const actions = {
 async function save() {
   const data = clone(draft);
   data.schedule = data.schedule.filter((entry) => entry.type !== "show" || entry.title || entry.time);
+  data.posts = tidyPosts(data.posts ?? []);
   try {
     await store.save(site, data);
   } catch (error) {
@@ -166,7 +206,7 @@ async function save() {
     return;
   }
   setContent(site, data);
-  loadDraft();
+  await loadDraft();
   render();
   toast(API_BASE ? "Saved. The live site is updated." : "Saved in this browser.");
 }
@@ -202,12 +242,12 @@ function wire() {
     showSignedIn(false);
   });
 
-  $("admin-site").addEventListener("click", (event) => {
+  $("admin-site").addEventListener("click", async (event) => {
     const button = event.target.closest("button");
     if (!button) return;
     if (dirty && !confirm("Discard unsaved changes?")) return;
     site = button.dataset.site;
-    loadDraft();
+    await loadDraft();
     render();
   });
 
@@ -249,8 +289,8 @@ function wire() {
   });
 
   $("admin-save").addEventListener("click", save);
-  $("admin-revert").addEventListener("click", () => {
-    loadDraft();
+  $("admin-revert").addEventListener("click", async () => {
+    await loadDraft();
     render();
     toast("Changes discarded.");
   });
