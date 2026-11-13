@@ -21,15 +21,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400;900&display=swap">
 <link rel="stylesheet" href="css/base.css?v=202611121845">
-<link rel="stylesheet" href="css/stage.css?v=202611121845">
-<link rel="stylesheet" href="css/layout.css?v=202611121845">
+<link rel="stylesheet" href="css/stage.css?v=202611131400">
+<link rel="stylesheet" href="css/layout.css?v=202611131400">
 <link rel="stylesheet" href="css/home.css?v=202611130300">
 <link rel="stylesheet" href="css/fundings.css?v=202611121845">
 <link rel="stylesheet" href="css/watch.css?v=202611121845">
 <link rel="stylesheet" href="css/player.css?v=202611121845">
 <link rel="stylesheet" href="css/schedule.css?v=202611121845">
-<link rel="stylesheet" href="css/menu.css?v=202611121845">
-<link rel="stylesheet" href="css/admin.css?v=202611121845">
+<link rel="stylesheet" href="css/menu.css?v=202611131400">
+<link rel="stylesheet" href="css/blog.css?v=202611131400">
+<link rel="stylesheet" href="css/admin.css?v=202611131400">
 </head>
 <body>
 <div id="background" aria-hidden="true"><img id="background-art" alt="" src="assets/img/background-ch.svg"></div>
@@ -102,6 +103,15 @@
 <p class="view-dmca dmca-text"><span>Media outlet <b>"Webchannel Yeeps Channel"</b> operates as an independent, non-profit internet based entity.</span><span>Yeeps Channel is not licensed or accredited by any federal, state, or international communication regulatory body.</span><span>For any copyright claims or concerns, please email <a href="mailto:dmca@bloomnetworks.net">dmca@bloomnetworks.net</a>.</span></p>
 <img class="layer only-ch hide-on-subpages corner-shape-ch" alt="" src="assets/img/corner-shape.svg">
 <img class="layer only-ds hide-on-subpages corner-shape-ds" alt="" src="assets/img/corner-shape.svg">
+<!-- BLOG -->
+<img class="layer view-blog blog-shapes" alt="" src="assets/img/blog-shapes.svg">
+<!-- BLOG PAGES -->
+<section id="blog-page" class="page blog" aria-label="Blog"><div class="blog-column">
+<h1 class="blog-title">Blog</h1>
+<p class="blog-intro" id="blog-intro"></p>
+<ul class="blog-list" id="blog-list"></ul>
+</div></section>
+<section id="post-page" class="page blog" aria-label="Post"><div class="blog-column" id="post-body"></div></section>
 <!-- SCHEDULE PAGE -->
 <section id="schedule-page" class="page" aria-label="Stream schedule"><div class="schedule-column">
 <div class="schedule-header">
@@ -143,7 +153,7 @@
 </div>
 <nav id="menu" aria-label="Menu" aria-hidden="true" class="menu-panel"><div class="in">
 <img alt="" src="assets/img/menu-panel.svg" class="menu-panel-art">
-<img id="menu-underline" alt="" src="assets/img/menu-underline.webp" style="position:absolute;left:3.744%;top:22.832%;width:23.305%"><a href="#home" data-close aria-label="Home" class="menu-home"></a><a href="#schedule" data-close aria-label="Schedule" class="menu-schedule"></a><a href="#watch" data-close aria-label="Watch" class="menu-watch"></a><a href="#fundings" data-close aria-label="Fundings" class="menu-fundings"></a><a href="https://bloomnetworks.net/discord" aria-label="Discord" class="menu-discord"></a><a href="https://www.youtube.com/@yeepschannel" aria-label="YouTube" class="menu-youtube"></a><a href="https://www.tiktok.com/@YeepsChannel" aria-label="TikTok" class="menu-tiktok"></a><a href="https://www.instagram.com/yeepschannel" aria-label="Instagram" class="menu-instagram"></a><a href="#" aria-label="Settings" class="menu-settings"></a>
+<img id="menu-underline" alt="" src="assets/img/menu-underline.webp" style="position:absolute;left:3.744%;top:22.832%;width:23.305%"><a href="#home" data-close aria-label="Home" class="menu-home"></a><a href="#schedule" data-close aria-label="Schedule" class="menu-schedule"></a><a href="#watch" data-close aria-label="Watch" class="menu-watch"></a><a href="#fundings" data-close aria-label="Fundings" class="menu-fundings"></a><a href="#blog" data-close class="menu-blog">Blog</a><a href="https://bloomnetworks.net/discord" aria-label="Discord" class="menu-discord"></a><a href="https://www.youtube.com/@yeepschannel" aria-label="YouTube" class="menu-youtube"></a><a href="https://www.tiktok.com/@YeepsChannel" aria-label="TikTok" class="menu-tiktok"></a><a href="https://www.instagram.com/yeepschannel" aria-label="Instagram" class="menu-instagram"></a><a href="#" aria-label="Settings" class="menu-settings"></a>
 </div></nav>
 <button id="menu-button" aria-label="Open menu" aria-expanded="false" aria-controls="menu" class="menu-button">
 <img class="bars only-ch" alt="" src="assets/img/menu-bars.webp"><img class="bars only-ds" alt="" src="assets/img/menu-bars.webp">
@@ -151,7 +161,7 @@
 <button id="site-toggle" aria-pressed="false" aria-label="Switch to Yeeps Don’t Sleep" class="site-toggle">
 <img class="only-ch" alt="" src="assets/img/toggle-channel.webp"><img class="only-ds" alt="" src="assets/img/toggle-dont-sleep.webp"></button>
 </main>
-<script type="module" src="js/main.js?v=202611130300"></script>
+<script type="module" src="js/main.js?v=202611131400"></script>
 
 
 </body>

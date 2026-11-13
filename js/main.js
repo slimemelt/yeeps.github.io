@@ -7,6 +7,7 @@ import { route, updateTitle } from "./router.js";
 import { whileLoading } from "./loader.js";
 import { renderHome, resetFeatured, fitAboutText } from "./views/home.js";
 import { renderSchedulePage } from "./views/schedule.js";
+import { renderBlog } from "./views/blog.js";
 import { fitFundingsText } from "./views/fundings.js";
 
 const toggle = $("site-toggle");
@@ -20,6 +21,7 @@ function renderSite() {
   renderHome();
   renderSchedulePage();
   updateTitle();
+  renderBlog();
 }
 
 toggle.addEventListener("click", () => {

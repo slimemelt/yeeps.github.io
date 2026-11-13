@@ -25,6 +25,15 @@ const remote = {
       throw error;
     }
   },
+  // The admin also gets unpublished posts, which the public read leaves out.
+  async loadAdmin(site) {
+    try {
+      return await (await request(`/content/${site}?drafts=1`)).json();
+    } catch (error) {
+      if (error.status === 404) return null;
+      throw error;
+    }
+  },
   async save(site, data) {
     await request(`/content/${site}`, {
       method: "PUT",
@@ -80,6 +89,9 @@ const local = {
     } catch {
       return null;
     }
+  },
+  loadAdmin(site) {
+    return this.load(site);
   },
   async save(site, data) {
     localStorage.setItem(draftKey(site), JSON.stringify(data));

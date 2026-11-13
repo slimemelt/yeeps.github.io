@@ -15,7 +15,7 @@ async function fetchDefaults(site) {
 }
 
 function withDefaults(site, data) {
-  const merged = { banners: [], schedule: [], shows: [], ...data };
+  const merged = { banners: [], schedule: [], shows: [], posts: [], ...data };
   merged.settings = { ...defaults[site].settings, ...(data.settings || {}) };
   return merged;
 }

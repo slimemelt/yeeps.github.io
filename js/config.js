@@ -26,6 +26,7 @@ export const ROUTES = {
   "#schedule": "schedule",
   "#watch": "watch",
   "#fundings": "fund",
+  "#blog": "blog",
   "#admin": "admin",
 };
 
@@ -34,6 +35,7 @@ export const VIEW_TITLES = {
   schedule: "Schedule",
   watch: "Watch",
   fund: "Fundings",
+  blog: "Blog",
   admin: "Admin",
 };
 
@@ -43,6 +45,8 @@ export const MENU_UNDERLINE = {
   schedule: [3.534, 34.336, 44.89],
   watch: [3.534, 45.044, 25.788],
   fund: [3.534, 55.75, 44.0],
+  blog: [3.534, 66.2, 21.0],
+  post: [3.534, 66.2, 21.0],
 };
 
 export const DESIGN_WIDTH = 1047; // width of the Figma artboard, in px
