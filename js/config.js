@@ -26,6 +26,7 @@ export const ROUTES = {
   "#schedule": "schedule",
   "#watch": "watch",
   "#fundings": "fund",
+  "#applications": "apps",
   "#admin": "admin",
 };
 
@@ -34,6 +35,8 @@ export const VIEW_TITLES = {
   schedule: "Schedule",
   watch: "Watch",
   fund: "Fundings",
+  apps: "Applications",
+  apply: "Application",
   admin: "Admin",
 };
 
