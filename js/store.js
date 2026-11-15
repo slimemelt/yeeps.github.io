@@ -42,7 +42,7 @@ const remote = {
     });
   },
   async loadRedirects() {
-    return (await (await request("/redirects")).json()).redirects;
+    return (await (await request("/redirects", { cache: "no-store" })).json()).redirects;
   },
   async saveRedirects(redirects) {
     await request("/redirects", {
