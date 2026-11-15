@@ -3,9 +3,16 @@ import { REDIRECT_HOSTS } from "../config.js";
 import { store } from "../store.js";
 
 let rows = [];
+let unsaved = false;
+
+// Rows only reach the server on "Save redirects", so warn before a refresh throws them away.
+addEventListener("beforeunload", (event) => {
+  if (unsaved) event.preventDefault();
+});
 
 export async function loadRedirects() {
   rows = await store.loadRedirects();
+  unsaved = false;
 }
 
 const shortLink = (row) => `${row.host}/${row.path.trim().replace(/^\/+|\/+$/g, "").toLowerCase()}`;
@@ -39,6 +46,7 @@ export function onRedirectInput(field) {
   if (!item || !field.dataset.rf) return;
   const row = rows[Number(item.dataset.r)];
   row[field.dataset.rf] = field.value;
+  unsaved = true;
   item.querySelector("[data-preview]").textContent = shortLink(row);
 }
 
@@ -47,10 +55,12 @@ export async function onRedirectClick(button, ui) {
   const action = button.dataset.redirect;
   if (action === "add") {
     rows.push({ host: REDIRECT_HOSTS[0], path: "", url: "" });
+    unsaved = true;
     ui.render();
   } else if (action === "del") {
     if (!confirm("Delete this redirect?")) return;
     rows.splice(Number(button.closest("[data-r]").dataset.r), 1);
+    unsaved = true;
     ui.render();
   } else if (action === "save") {
     const filled = rows.filter((row) => row.path.trim() || row.url.trim());
