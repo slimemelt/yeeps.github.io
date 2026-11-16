@@ -8,7 +8,19 @@
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;900&display=swap">
+<script>
+  // Site pages (/fundings, /blog/some-post…) go straight back to index.html before anything paints.
+  (function () {
+    var first = decodeURIComponent(location.pathname).split("/")[1].toLowerCase();
+    if (["schedule", "watch", "fundings", "blog", "dmca", "admin"].indexOf(first) > -1) {
+      try { sessionStorage.setItem("ypch-path", location.pathname + location.search + location.hash); } catch (e) {}
+      location.replace("/");
+    }
+  })();
+</script>
 <style>
+  html { visibility: hidden; }
+  html.show { visibility: visible; }
   html, body { height: 100%; margin: 0; background: #f9b10f; color: #131095; font-family: "Londrina Solid", "Arial Narrow", sans-serif; }
   main { min-height: 100%; display: grid; place-content: center; justify-items: center; gap: 6px; padding: 24px; text-align: center; }
   img { width: 88px; height: 88px; margin-bottom: 10px; }
@@ -32,6 +44,7 @@
   const path = decodeURIComponent(location.pathname).replace(/^\/+|\/+$/g, "").toLowerCase();
 
   function showNotFound() {
+    document.documentElement.classList.add("show");
     document.title = "Page not found";
     document.title = "nothing here";
     document.getElementById("title").textContent = "nothing here";
@@ -43,13 +56,6 @@
     if (!response.ok) throw new Error(`redirects failed (${response.status})`);
     const { redirects } = await response.json();
     return redirects.find((row) => row.host === host && row.path === path)?.url;
-  }
-
-  // Pages of the site itself (/fundings, /blog/some-post…): hand the path to index.html.
-  const PAGES = ["schedule", "watch", "fundings", "blog", "dmca", "admin"];
-  if (host !== "bloomnetworks.net" && PAGES.includes(path.split("/")[0])) {
-    try { sessionStorage.setItem("ypch-path", location.pathname + location.search + location.hash); } catch {}
-    location.replace("/");
   }
 
   try {
