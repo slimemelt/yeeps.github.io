@@ -21,8 +21,8 @@ export function applyView(view) {
 }
 
 export async function route({ first = false } = {}) {
-  const { hash } = location;
-  let view = ROUTES[hash] ?? (hash.startsWith("#blog/") ? "post" : "home");
+  const path = location.pathname.replace(/\/+$/, "");
+  let view = ROUTES[path] ?? (path.startsWith("/blog/") ? "post" : "home");
   if (view === "admin" && !ADMIN_ENABLED) view = "home";
   const changed = view !== state.view;
   applyView(view);
@@ -36,8 +36,23 @@ export async function route({ first = false } = {}) {
 
   if (changed && !first) {
     scrollTo(0, 0);
-    // in-page anchors such as #home-schedule
+    // in-page anchors such as /#home-schedule
+    const { hash } = location;
     const anchor = view === "home" && hash.length > 1 ? document.getElementById(hash.slice(1)) : null;
     if (anchor) setTimeout(() => anchor.scrollIntoView(), 50);
   }
+}
+
+/** Moves to a clean path (/fundings) without reloading the page. */
+export function navigate(path) {
+  if (path === location.pathname + location.search) return;
+  history.pushState(null, "", path);
+  route();
+}
+
+/** Old links like /#fundings still work: swap them for the clean path. */
+export function upgradeLegacyHash() {
+  const view = ROUTES["/" + location.hash.slice(1)];
+  if (view && location.pathname === "/") history.replaceState(null, "", "/" + location.hash.slice(1));
+  else if (location.hash.startsWith("#blog/")) history.replaceState(null, "", "/" + location.hash.slice(1));
 }

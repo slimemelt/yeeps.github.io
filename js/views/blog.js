@@ -86,7 +86,7 @@ function renderList() {
   list.replaceChildren(
     ...items.map((post) => {
       const card = el("a", "post-card");
-      card.href = `#blog/${post.id}`;
+      card.href = `/blog/${post.id}`;
       card.append(head(post), el("p", "post-excerpt", excerpt(post)), el("span", "post-go", "Read more"));
       const item = el("li");
       item.append(card);
@@ -98,7 +98,7 @@ function renderList() {
 function renderPost(id) {
   const body = $("post-body");
   const back = el("a", "post-back", "Blog");
-  back.href = "#blog";
+  back.href = "/blog";
   const post = posts().find((candidate) => candidate.id === id);
   if (!post) {
     body.replaceChildren(back, el("p", "blog-empty", "We couldn’t find that post."));
@@ -116,5 +116,5 @@ function renderPost(id) {
 
 export function renderBlog() {
   if (state.view === "blog") renderList();
-  if (state.view === "post") renderPost(decodeURIComponent(location.hash.slice("#blog/".length)));
+  if (state.view === "post") renderPost(decodeURIComponent(location.pathname.slice("/blog/".length)));
 }

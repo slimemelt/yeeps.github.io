@@ -15,6 +15,14 @@
 <meta property="og:image:height" content="675">
 <meta property="og:image:alt" content="Yeeps Channel">
 <meta name="twitter:card" content="summary_large_image">
+<base href="/">
+<script>
+  // 404.html hands a clean path (e.g. /fundings) back here, since GitHub Pages only serves real files.
+  try {
+    const saved = sessionStorage.getItem("ypch-path");
+    if (saved) { sessionStorage.removeItem("ypch-path"); history.replaceState(null, "", saved); }
+  } catch {}
+</script>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +50,7 @@
 <main class="stage" id="stage" data-site="ch" data-view="home">
 <img class="layer view-home only-ch home-shapes" alt="" src="assets/img/home-shapes.svg">
 <img class="layer view-dmca only-ch dmca-bg" alt="" src="assets/img/dmca-bg.svg">
-<a href="#home" aria-label="Yeeps Channel home" class="only-ch header-home"><img class="pin-orange" src="assets/img/pin-orange.webp" alt=""><img class="pin-green" src="assets/img/pin-green.webp" alt=""></a>
+<a href="/" aria-label="Yeeps Channel home" class="only-ch header-home"><img class="pin-orange" src="assets/img/pin-orange.webp" alt=""><img class="pin-green" src="assets/img/pin-green.webp" alt=""></a>
 <img class="art only-ds layer header-mark-ds" src="assets/img/header-mark-ds.webp" alt="">
 <div aria-hidden="true" class="header-rule"></div>
 <h1 class="visually-hidden" id="page-title">Yeeps Channel</h1>
@@ -60,7 +68,7 @@
 <div class="schedule-fade view-home home-schedule-fade"></div>
 <img class="art view-home home-schedule-label" src="assets/img/label-schedule.webp" alt="Schedule"><h2 class="visually-hidden view-home" id="schedule-heading">Schedule</h2>
 <img class="art only-ch view-home home-full-schedule-ch" src="assets/img/home-full-schedule-ch.webp" alt="View the full schedule"><img class="art only-ds view-home home-full-schedule-ds" src="assets/img/home-full-schedule-ds.webp" alt="View the full schedule">
-<a class="view-home home-full-schedule-link" href="#schedule" aria-label="View the full schedule"></a>
+<a class="view-home home-full-schedule-link" href="/schedule" aria-label="View the full schedule"></a>
 <h2 class="visually-hidden view-home">Featured shows</h2>
 <img class="art only-ch view-home home-featured-title-ch" src="assets/img/home-featured-title-ch.webp" alt="Featured shows"><img class="art only-ds view-home home-featured-title-ds" src="assets/img/home-featured-title-ds.webp" alt="Featured shows">
 <div class="featured-card view-home home-featured-card" id="featured-card" tabindex="0" role="group" aria-label="Featured shows"><img id="featured-image" alt=""></div>
@@ -93,7 +101,7 @@
 <section class="schedule-card view-watch watch-schedule-card" id="wp-schedule" aria-label="Schedule"><div id="watch-rows"></div></section>
 <div class="schedule-fade view-watch watch-schedule-fade"></div>
 <img class="art view-watch watch-schedule-label" src="assets/img/label-schedule.webp" alt="Schedule">
-<a class="view-watch watch-schedule-link" href="#schedule" aria-label="View the full schedule"></a>
+<a class="view-watch watch-schedule-link" href="/schedule" aria-label="View the full schedule"></a>
 <a class="view-watch watch-mist-banner" href="https://mistlive.tv/channels/yeeps" aria-label="Yeeps Channel is also on mist live"><img class="art fill-image" alt="Yeeps Channel is also on mist live" src="assets/img/watch-mist-banner.webp"></a>
 <p class="chat-text view-watch watch-chat-text">wanna chat with others?<br>join our <a href="https://bloomnetworks.net/discord">discord</a> here!</p>
 <a class="view-watch watch-discord" href="https://bloomnetworks.net/discord" aria-label="Join our Discord"><img class="art fill-image" alt="" src="assets/img/watch-discord.webp"></a>
@@ -146,14 +154,14 @@
 <img class="layer only-ch footer-scene-ch" alt="" src="assets/img/footer-scene-ch.svg"><img class="layer only-ds footer-scene-ds" alt="" src="assets/img/footer-scene-ds.svg">
 <div class="layer only-ch view-home footer-discord-disc"></div>
 <img class="layer only-ch view-home footer-discord-mark" alt="" src="assets/img/footer-discord-mark.svg">
-<p class="footer-legal footer-legal-text">YEEPS CHANNEL IS RUN BY <a class="bl" href="https://bloomnetworks.net">BLOOM NETWORKS</a><br><span class="footer-copyright">©2026 Bloom Networks, Trass Games Inc.</span><br><a href="#dmca">DMCA</a><a href="#admin">ADMIN</a></p>
+<p class="footer-legal footer-legal-text">YEEPS CHANNEL IS RUN BY <a class="bl" href="https://bloomnetworks.net">BLOOM NETWORKS</a><br><span class="footer-copyright">©2026 Bloom Networks, Trass Games Inc.</span><br><a href="/dmca">DMCA</a><a href="/admin">ADMIN</a></p>
 <img class="art only-ch layer footer-bloom-ch" src="assets/img/foot-bloom-ch.webp" alt="bloom"><img class="art only-ds layer footer-bloom-ds" src="assets/img/foot-bloom-ds.webp" alt="bloom">
 <a href="https://bloomnetworks.net" aria-label="Bloom Networks" class="footer-bloom-link"></a>
 <a class="only-ch view-home footer-discord-link" href="https://bloomnetworks.net/discord" aria-label="Join our Discord"></a>
 </div>
 <nav id="menu" aria-label="Menu" aria-hidden="true" class="menu-panel"><div class="in">
 <img alt="" src="assets/img/menu-panel.svg" class="menu-panel-art">
-<img id="menu-underline" alt="" src="assets/img/menu-underline.webp" style="position:absolute;left:3.744%;top:22.832%;width:23.305%"><a href="#home" data-close aria-label="Home" class="menu-home"></a><a href="#schedule" data-close aria-label="Schedule" class="menu-schedule"></a><a href="#watch" data-close aria-label="Watch" class="menu-watch"></a><a href="#fundings" data-close aria-label="Fundings" class="menu-fundings"></a><a href="#blog" data-close class="menu-blog">Blog</a><a href="https://bloomnetworks.net/discord" aria-label="Discord" class="menu-discord"></a><a href="https://www.youtube.com/@yeepschannel" aria-label="YouTube" class="menu-youtube"></a><a href="https://www.tiktok.com/@YeepsChannel" aria-label="TikTok" class="menu-tiktok"></a><a href="https://www.instagram.com/yeepschannel" aria-label="Instagram" class="menu-instagram"></a><a href="#" aria-label="Settings" class="menu-settings"></a>
+<img id="menu-underline" alt="" src="assets/img/menu-underline.webp" style="position:absolute;left:3.744%;top:22.832%;width:23.305%"><a href="/" data-close aria-label="Home" class="menu-home"></a><a href="/schedule" data-close aria-label="Schedule" class="menu-schedule"></a><a href="/watch" data-close aria-label="Watch" class="menu-watch"></a><a href="/fundings" data-close aria-label="Fundings" class="menu-fundings"></a><a href="/blog" data-close class="menu-blog">Blog</a><a href="https://bloomnetworks.net/discord" aria-label="Discord" class="menu-discord"></a><a href="https://www.youtube.com/@yeepschannel" aria-label="YouTube" class="menu-youtube"></a><a href="https://www.tiktok.com/@YeepsChannel" aria-label="TikTok" class="menu-tiktok"></a><a href="https://www.instagram.com/yeepschannel" aria-label="Instagram" class="menu-instagram"></a><a href="#" aria-label="Settings" class="menu-settings"></a>
 </div></nav>
 <button id="menu-button" aria-label="Open menu" aria-expanded="false" aria-controls="menu" class="menu-button">
 <img class="bars only-ch" alt="" src="assets/img/menu-bars.webp"><img class="bars only-ds" alt="" src="assets/img/menu-bars.webp">

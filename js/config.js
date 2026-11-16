@@ -22,12 +22,12 @@ export const SITES = {
 
 // Hash route -> view name. Anything not listed is the home view.
 export const ROUTES = {
-  "#dmca": "dmca",
-  "#schedule": "schedule",
-  "#watch": "watch",
-  "#fundings": "fund",
-  "#blog": "blog",
-  "#admin": "admin",
+  "/dmca": "dmca",
+  "/schedule": "schedule",
+  "/watch": "watch",
+  "/fundings": "fund",
+  "/blog": "blog",
+  "/admin": "admin",
 };
 
 export const VIEW_TITLES = {

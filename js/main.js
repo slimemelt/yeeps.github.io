@@ -1,9 +1,9 @@
 import { $, stage } from "./dom.js";
-import { SITES } from "./config.js";
+import { ROUTES, SITES } from "./config.js";
 import { state, rememberSite } from "./state.js";
 import { loadContent, onContentChange } from "./content.js";
 import { initMenu, setMenuOpen } from "./menu.js";
-import { route, updateTitle } from "./router.js";
+import { navigate, route, updateTitle, upgradeLegacyHash } from "./router.js";
 import { whileLoading } from "./loader.js";
 import { renderHome, resetFeatured, fitAboutText } from "./views/home.js";
 import { renderSchedulePage } from "./views/schedule.js";
@@ -35,7 +35,17 @@ toggle.addEventListener("click", () => {
 // The admin saves new content; refresh whatever is on screen.
 onContentChange((site) => site === state.site && renderSite());
 
-addEventListener("hashchange", () => route());
+addEventListener("popstate", () => route());
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href]");
+  if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || link.target) return;
+  const href = link.getAttribute("href");
+  // Banner links saved as "#schedule" in the admin map to the same clean paths.
+  const path = href === "#home" ? "/" : href.startsWith("#") && ROUTES["/" + href.slice(1)] ? "/" + href.slice(1) : href;
+  if (!path.startsWith("/") || path.startsWith("//")) return;
+  event.preventDefault();
+  navigate(path);
+});
 addEventListener("resize", () => {
   fitAboutText();
   fitFundingsText();
@@ -46,6 +56,7 @@ async function boot() {
   whileLoading(new Promise((done) => (document.readyState === "complete" ? done() : addEventListener("load", done))));
   await whileLoading(loadContent());
   renderSite();
+  upgradeLegacyHash();
   await route({ first: true });
   document.fonts?.ready.then(() => {
     fitAboutText();
