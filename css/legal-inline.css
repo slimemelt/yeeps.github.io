@@ -1,0 +1,17 @@
+/* Terms and Privacy inside the site */
+.legal-inline{width:86%;max-width:640px;margin:0 auto;color:var(--charcoal);font:400 clamp(20px,calc(54*var(--u)),24px)/1.28 "Londrina Solid","Arial Narrow",sans-serif}
+.legal-inline h1{margin:0;font:400 clamp(32px,calc(112*var(--u)),52px)/1 "Gasoek One",sans-serif;text-transform:uppercase}
+.legal-inline .date{margin:12px 0 0;font-weight:900;font-size:clamp(15px,4.4vw,19px);line-height:1;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:var(--pink)}
+.legal-inline .date+p{margin-top:24px}
+.legal-inline h2{margin:40px 0 12px;font:400 clamp(20px,calc(62*var(--u)),24px)/1.1 "Gasoek One",sans-serif;color:var(--navy)}
+.legal-inline h2+p,.legal-inline h2+ul{margin-top:0}
+.legal-inline p{margin:16px 0 0}
+.legal-inline ul{margin:16px 0 0;padding:0;list-style:none}
+.legal-inline li{position:relative;padding-left:24px}
+.legal-inline li+li{margin-top:10px}
+.legal-inline li::before{content:"";position:absolute;left:3px;top:.42em;width:9px;height:9px;border-radius:50%;background:var(--pink)}
+.legal-inline a{color:var(--navy);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.legal-inline a:hover{color:var(--pink)}
+.stage[data-site=ds] .legal-inline{color:#e3e3ff}
+.stage[data-site=ds] .legal-inline h2{margin:40px 0 12px;font:400 clamp(20px,calc(62*var(--u)),24px)/1.1 "Gasoek One",sans-serif;color:var(--yellow)}
+.stage[data-site=ds] .legal-inline a{color:#e3e3ff}

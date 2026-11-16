@@ -5,6 +5,7 @@ import { placeUnderline } from "./menu.js";
 import { ensurePlayer, pausePlayer } from "./views/player.js";
 import { fitFundingsText } from "./views/fundings.js";
 import { renderBlog } from "./views/blog.js";
+import { renderLegal } from "./views/legal.js";
 
 export function updateTitle() {
   const label = VIEW_TITLES[state.view];
@@ -17,16 +18,19 @@ export function applyView(view) {
   stage.dataset.view = view;
   document.documentElement.dataset.view = view;
   placeUnderline(view);
+  const tab = view === "post" ? "blog" : view;
+  document.querySelectorAll(".home-tabs a").forEach((a) => (a.dataset.tab === tab ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current")));
   updateTitle();
 }
 
 export async function route({ first = false } = {}) {
   const path = location.pathname.replace(/\/+$/, "");
-  let view = ROUTES[path] ?? (path.startsWith("/blog/") ? "post" : "home");
+  let view = ROUTES[path] ?? (path.startsWith("/news/") ? "post" : "home");
   if (view === "admin" && !ADMIN_ENABLED) view = "home";
   const changed = view !== state.view;
   applyView(view);
   renderBlog();
+  if (view === "legal") renderLegal();
 
   if (view === "watch") ensurePlayer();
   else pausePlayer();
@@ -54,5 +58,6 @@ export function navigate(path) {
 export function upgradeLegacyHash() {
   const view = ROUTES["/" + location.hash.slice(1)];
   if (view && location.pathname === "/") history.replaceState(null, "", "/" + location.hash.slice(1));
-  else if (location.hash.startsWith("#blog/")) history.replaceState(null, "", "/" + location.hash.slice(1));
+  else if (location.hash.startsWith("#blog/")) history.replaceState(null, "", "/news/" + location.hash.slice("#blog/".length));
+  else if (location.pathname === "/blog" || location.pathname.startsWith("/blog/")) history.replaceState(null, "", location.pathname.replace(/^\/blog/, "/news"));
 }

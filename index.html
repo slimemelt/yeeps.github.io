@@ -2,6 +2,7 @@
 <html lang="en" data-site="ch" data-view="home">
 <head>
 <meta charset="utf-8">
+<base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Yeeps Channel</title>
 <meta name="description" content="Yeeps Channel is an independent TV network made for the Yeeps community.">
@@ -15,7 +16,6 @@
 <meta property="og:image:height" content="675">
 <meta property="og:image:alt" content="Yeeps Channel">
 <meta name="twitter:card" content="summary_large_image">
-<base href="/">
 <script>
   // 404.html hands a clean path (e.g. /fundings) back here, since GitHub Pages only serves real files.
   try {
@@ -27,7 +27,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Varela+Round&family=Londrina+Solid:wght@300;400;900&display=swap">
 <link rel="stylesheet" href="css/base.css?v=202611121845">
 <link rel="stylesheet" href="css/stage.css?v=202611131400">
 <link rel="stylesheet" href="css/layout.css?v=202611131400">
@@ -37,7 +37,9 @@
 <link rel="stylesheet" href="css/player.css?v=202611121845">
 <link rel="stylesheet" href="css/schedule.css?v=202611121845">
 <link rel="stylesheet" href="css/menu.css?v=202611131400">
+<link rel="stylesheet" href="css/legal-inline.css">
 <link rel="stylesheet" href="css/blog.css?v=202611131445">
+<link rel="stylesheet" href="css/motion.css?v=1">
 <link rel="stylesheet" href="css/admin.css?v=202611131400">
 </head>
 <body>
@@ -55,11 +57,12 @@
 <div aria-hidden="true" class="header-rule"></div>
 <h1 class="visually-hidden" id="page-title">Yeeps Channel</h1>
 <!-- HOME -->
+<nav class="home-tabs" aria-label="Pages"><a href="/" data-tab="home">Home</a><a href="/schedule" data-tab="schedule">Schedule</a><a href="/watch" data-tab="watch">Watch</a><a href="/fundings" data-tab="fund">Fundings</a><a href="/news" data-tab="blog">News</a></nav>
 <section class="banner view-home home-banner" id="banner" aria-roledescription="carousel" aria-label="Announcements"><a id="banner-link"><img id="banner-image" alt=""></a></section>
 <div class="dots view-home home-dots" id="dots"></div>
 <img class="art only-ch view-home home-logo-ch" src="assets/img/home-logo-ch.webp" alt="Yeeps channel"><img class="art only-ds view-home home-logo-ds" src="assets/img/home-logo-ds.webp" alt="Yeeps channel">
 <p class="about-text view-home home-about">Yeeps Channel is an independent TV network made for the Yeeps community. We bring you entertainment, shows, events, and original programming through a unique online television experience.</p>
-<img class="art only-ch view-home home-watch-more-ch" src="assets/img/home-watch-more.webp" alt="Watch more on"><img class="art only-ds view-home home-watch-more-ds" src="assets/img/home-watch-more.webp" alt="Watch more on">
+<p class="view-home home-watch-more">Watch more on</p>
 <a class="view-home home-youtube" href="https://www.youtube.com/@yeepschannel" aria-label="YouTube"></a>
 <img class="art only-ch view-home layer home-youtube-ch" src="assets/img/home-youtube-ch.webp" alt="YouTube"><img class="art only-ds view-home layer home-youtube-ds" src="assets/img/home-youtube-ds.webp" alt="YouTube">
 <p class="about-text view-home home-socials"><a href="https://www.youtube.com/@yeepschannel" class="plain-link">@yeepschannel</a><br>or the rest of our socials</p>
@@ -70,10 +73,18 @@
 <img class="art only-ch view-home home-full-schedule-ch" src="assets/img/home-full-schedule-ch.webp" alt="View the full schedule"><img class="art only-ds view-home home-full-schedule-ds" src="assets/img/home-full-schedule-ds.webp" alt="View the full schedule">
 <a class="view-home home-full-schedule-link" href="/schedule" aria-label="View the full schedule"></a>
 <h2 class="visually-hidden view-home">Featured shows</h2>
-<img class="art only-ch view-home home-featured-title-ch" src="assets/img/home-featured-title-ch.webp" alt="Featured shows"><img class="art only-ds view-home home-featured-title-ds" src="assets/img/home-featured-title-ds.webp" alt="Featured shows">
+<h2 class="view-home home-featured-title">Featured shows</h2>
 <div class="featured-card view-home home-featured-card" id="featured-card" tabindex="0" role="group" aria-label="Featured shows"><img id="featured-image" alt=""></div>
 <h3 class="featured-name view-home home-featured-name" id="featured-name"></h3>
 <p class="featured-blurb view-home home-featured-blurb" id="featured-blurb"></p>
+<!-- NEWS: the three newest published posts -->
+<div class="view-home news-block" id="home-news" hidden>
+<h2 class="news-title">Latest news</h2>
+<section class="news-card" id="home-news-list" aria-label="Latest news"></section>
+<a class="news-more" href="/news">See all news</a>
+<svg class="layer news-star-g" viewBox="8757 12754 787 805" aria-hidden="true"><path d="M8994 12847.6C8999.06 12752.3 9123.35 12719 9175.38 12799L9224.07 12873.8C9247.34 12909.6 9291.06 12926.3 9332.37 12915.2L9418.82 12892.1C9511.19 12867.3 9581.19 12975 9520.97 13049.2L9464.62 13118.6C9437.69 13151.8 9435.21 13198.4 9458.48 13234.2L9507.17 13309.1C9559.2 13389.1 9478.18 13488.9 9388.93 13454.8L9305.41 13422.8C9265.5 13407.5 9220.25 13419.7 9193.32 13452.8L9136.96 13522.3C9076.74 13596.5 8956.67 13550.5 8961.73 13455.2L8966.46 13366.1C8968.73 13323.4 8943.24 13284.2 8903.33 13269L8819.81 13237C8730.56 13202.9 8737.37 13074.7 8829.74 13049.9L8916.19 13026.8C8957.5 13015.7 8987 12979.3 8989.27 12936.7L8994 12847.6Z" fill="#45F46E"/></svg>
+<svg class="layer news-star-p" viewBox="3750 15444 1068 1081" aria-hidden="true"><path d="M3910.32 15653.2C3784.6 15626.4 3698.16 15776.1 3784.18 15871.7L3864.67 15961C3903.14 16003.7 3909.73 16066.4 3881 16116.1L3820.88 16220.3C3756.64 16331.5 3872.37 16460 3989.78 16407.8L4099.65 16358.9C4152.16 16335.5 4213.75 16348.6 4252.22 16391.3L4332.71 16480.7C4418.73 16576.2 4576.7 16505.9 4563.24 16378.1L4550.65 16258.5C4544.63 16201.4 4576.11 16146.9 4628.61 16123.5L4738.48 16074.6C4855.89 16022.4 4837.78 15850.4 4712.06 15823.7L4594.41 15798.7C4538.18 15786.7 4496.04 15739.9 4490.02 15682.8L4477.43 15563.2C4463.97 15435.4 4294.82 15399.4 4230.57 15510.6L4170.45 15614.8C4141.72 15664.5 4084.2 15690.1 4027.98 15678.2L3910.32 15653.2Z" fill="#E50081"/></svg>
+</div>
 <!-- FUNDINGS -->
 <img class="layer view-fund fund-shapes" alt="" src="assets/img/fund-shapes.svg?v=202611120010">
 <img class="art view-fund fund-logo" alt="Yeeps Channel Fundings" src="assets/img/fund-logo.webp?v=202611120010">
@@ -114,11 +125,12 @@
 <!-- BLOG -->
 <img class="layer view-blog blog-shapes" alt="" src="assets/img/blog-shapes.svg?v=202611131445">
 <!-- BLOG PAGES -->
-<section id="blog-page" class="page blog" aria-label="Blog"><div class="blog-column">
-<h1 class="blog-title">Blog</h1>
+<section id="blog-page" class="page blog" aria-label="News"><div class="blog-column">
+<h1 class="blog-title">News</h1>
 <p class="blog-intro" id="blog-intro"></p>
 <ul class="blog-list" id="blog-list"></ul>
 </div></section>
+<section id="legal-page" class="page" aria-label="Legal"><div class="legal-inline" id="legal-body"></div></section>
 <section id="post-page" class="page blog" aria-label="Post"><div class="blog-column" id="post-body"></div></section>
 <!-- SCHEDULE PAGE -->
 <section id="schedule-page" class="page" aria-label="Stream schedule"><div class="schedule-column">
@@ -154,14 +166,15 @@
 <img class="layer only-ch footer-scene-ch" alt="" src="assets/img/footer-scene-ch.svg"><img class="layer only-ds footer-scene-ds" alt="" src="assets/img/footer-scene-ds.svg">
 <div class="layer only-ch view-home footer-discord-disc"></div>
 <img class="layer only-ch view-home footer-discord-mark" alt="" src="assets/img/footer-discord-mark.svg">
-<p class="footer-legal footer-legal-text">YEEPS CHANNEL IS RUN BY <a class="bl" href="https://bloomnetworks.net">BLOOM NETWORKS</a><br><span class="footer-copyright">©2026 Bloom Networks, Trass Games Inc.</span><br><a href="/dmca">DMCA</a><a href="/admin">ADMIN</a></p>
+<p class="footer-legal footer-legal-text">YEEPS CHANNEL IS RUN BY <a class="bl" href="https://bloomnetworks.net">BLOOM NETWORKS</a><br><span class="footer-copyright">©2026 Bloom Networks, Trass Games Inc.</span><br><a href="/dmca">DMCA</a><a href="/terms">TERMS</a><a href="/privacy">PRIVACY</a><a href="/admin">ADMIN</a></p>
 <img class="art only-ch layer footer-bloom-ch" src="assets/img/foot-bloom-ch.webp" alt="bloom"><img class="art only-ds layer footer-bloom-ds" src="assets/img/foot-bloom-ds.webp" alt="bloom">
 <a href="https://bloomnetworks.net" aria-label="Bloom Networks" class="footer-bloom-link"></a>
+<div class="footer-social"><a href="https://bloomnetworks.net/discord" aria-label="Discord"><svg viewBox="255 5612 284 216" style="width:calc(36.9*var(--u));height:calc(28.1*var(--u))" aria-hidden="true"><g fill="#131095"><path d="M495.418 5629.94C477.317 5621.64 457.906 5615.52 437.611 5612.01C437.241 5611.95 436.872 5612.12 436.682 5612.45C434.185 5616.89 431.42 5622.69 429.484 5627.24C407.655 5623.97 385.938 5623.97 364.557 5627.24C362.62 5622.59 359.754 5616.89 357.247 5612.45C357.056 5612.13 356.687 5611.96 356.318 5612.01C336.034 5615.51 316.623 5621.63 298.51 5629.94C298.354 5630.01 298.219 5630.12 298.13 5630.27C261.312 5685.28 251.226 5738.93 256.174 5791.92C256.196 5792.18 256.342 5792.43 256.543 5792.58C280.835 5810.42 304.365 5821.25 327.459 5828.43C327.828 5828.54 328.22 5828.41 328.455 5828.1C333.918 5820.64 338.788 5812.78 342.963 5804.51C343.209 5804.02 342.974 5803.45 342.47 5803.26C334.746 5800.33 327.392 5796.75 320.317 5792.7C319.757 5792.37 319.712 5791.57 320.227 5791.19C321.716 5790.07 323.205 5788.91 324.627 5787.74C324.884 5787.52 325.242 5787.48 325.545 5787.61C372.023 5808.83 422.342 5808.83 468.272 5787.61C468.574 5787.47 468.932 5787.51 469.201 5787.73C470.623 5788.9 472.112 5790.07 473.612 5791.19C474.126 5791.57 474.093 5792.37 473.533 5792.7C466.458 5796.83 459.104 5800.33 451.368 5803.24C450.865 5803.44 450.641 5804.02 450.887 5804.51C455.152 5812.77 460.022 5820.63 465.384 5828.09C465.608 5828.41 466.01 5828.54 466.38 5828.43C489.586 5821.25 513.116 5810.42 537.408 5792.58C537.62 5792.43 537.755 5792.19 537.777 5791.93C543.699 5730.67 527.859 5677.46 495.787 5630.28C495.709 5630.12 495.575 5630.01 495.418 5629.94ZM349.904 5759.65C335.91 5759.65 324.38 5746.81 324.38 5731.03C324.38 5715.25 335.687 5702.41 349.904 5702.41C364.232 5702.41 375.65 5715.37 375.426 5731.03C375.426 5746.81 364.12 5759.65 349.904 5759.65ZM444.271 5759.65C430.278 5759.65 418.748 5746.81 418.748 5731.03C418.748 5715.25 430.054 5702.41 444.271 5702.41C458.6 5702.41 470.018 5715.37 469.794 5731.03C469.794 5746.81 458.6 5759.65 444.271 5759.65Z"/></g></svg></a><a href="https://www.youtube.com/@yeepschannel" aria-label="Youtube"><svg viewBox="598 5631 254 179" style="width:calc(33.0*var(--u));height:calc(23.2*var(--u))" aria-hidden="true"><g fill="#131095"><path d="M849.47 5669.2C849.47 5669.2 846.989 5651.69 839.35 5644C829.676 5633.88 818.861 5633.83 813.9 5633.24C778.38 5630.66 725.05 5630.66 725.05 5630.66H724.95C724.95 5630.66 671.62 5630.66 636.1 5633.24C631.139 5633.83 620.324 5633.88 610.65 5644C603.011 5651.69 600.58 5669.2 600.58 5669.2C600.58 5669.2 598 5689.79 598 5710.33V5729.58C598 5750.12 600.53 5770.7 600.53 5770.7C600.53 5770.7 603.011 5788.22 610.601 5795.91C620.275 5806.03 632.975 5805.68 638.63 5806.77C658.97 5808.7 725 5809.3 725 5809.3C725 5809.3 778.38 5809.2 813.9 5806.67C818.861 5806.08 829.676 5806.03 839.35 5795.91C846.989 5788.22 849.47 5770.7 849.47 5770.7C849.47 5770.7 852 5750.17 852 5729.58V5710.33C852 5689.79 849.47 5669.2 849.47 5669.2ZM698.757 5752.94V5681.56L767.366 5717.37L698.757 5752.94Z"/></g></svg></a><a href="https://www.tiktok.com/@YeepsChannel" aria-label="Tiktok"><svg viewBox="926 5634 156 183" style="width:calc(20.3*var(--u));height:calc(23.8*var(--u))" aria-hidden="true"><g fill="#131095"><path d="M1041.18 5634H1010.34V5758.65C1010.34 5773.5 998.475 5785.7 983.714 5785.7C968.953 5785.7 957.091 5773.5 957.091 5758.65C957.091 5744.07 968.689 5732.13 982.923 5731.6V5700.3C951.555 5700.83 926.25 5726.56 926.25 5758.65C926.25 5791.01 952.082 5817 983.978 5817C1015.87 5817 1041.7 5790.74 1041.7 5758.65V5694.73C1053.3 5703.22 1067.54 5708.26 1082.56 5708.53V5677.23C1059.37 5676.43 1041.18 5657.34 1041.18 5634Z"/></g></svg></a><a href="https://www.instagram.com/yeepschannel" aria-label="Instagram"><svg viewBox="1153 5612 207 207" style="width:calc(26.9*var(--u));height:calc(26.9*var(--u))" aria-hidden="true"><g fill="#131095"><path d="M1256.5 5630.64C1284.15 5630.64 1287.43 5630.76 1298.3 5631.24C1308.41 5631.69 1313.87 5633.39 1317.51 5634.8C1322.32 5636.66 1325.8 5638.93 1329.39 5642.52C1333.03 5646.16 1335.26 5649.6 1337.12 5654.41C1338.53 5658.05 1340.23 5663.55 1340.67 5673.61C1341.16 5684.53 1341.28 5687.81 1341.28 5715.42C1341.28 5743.07 1341.16 5746.35 1340.67 5757.22C1340.23 5767.33 1338.53 5772.79 1337.12 5776.43C1335.26 5781.24 1332.99 5784.72 1329.39 5788.31C1325.76 5791.95 1322.32 5794.18 1317.51 5796.04C1313.87 5797.45 1308.37 5799.15 1298.3 5799.59C1287.39 5800.08 1284.11 5800.2 1256.5 5800.2C1228.85 5800.2 1225.57 5800.08 1214.7 5799.59C1204.59 5799.15 1199.13 5797.45 1195.49 5796.04C1190.68 5794.18 1187.2 5791.91 1183.61 5788.31C1179.97 5784.68 1177.74 5781.24 1175.88 5776.43C1174.47 5772.79 1172.77 5767.29 1172.33 5757.22C1171.84 5746.31 1171.72 5743.03 1171.72 5715.42C1171.72 5687.77 1171.84 5684.49 1172.33 5673.61C1172.77 5663.51 1174.47 5658.05 1175.88 5654.41C1177.74 5649.6 1180.01 5646.12 1183.61 5642.52C1187.24 5638.89 1190.68 5636.66 1195.49 5634.8C1199.13 5633.39 1204.63 5631.69 1214.7 5631.24C1225.57 5630.76 1228.85 5630.64 1256.5 5630.64ZM1256.5 5612C1228.4 5612 1224.88 5612.12 1213.85 5612.61C1202.85 5613.09 1195.29 5614.87 1188.74 5617.42C1181.91 5620.09 1176.13 5623.6 1170.38 5629.38C1164.6 5635.13 1161.09 5640.91 1158.42 5647.7C1155.87 5654.29 1154.09 5661.81 1153.61 5672.81C1153.12 5683.88 1153 5687.4 1153 5715.5C1153 5743.6 1153.12 5747.12 1153.61 5758.15C1154.09 5769.15 1155.87 5776.71 1158.42 5783.26C1161.09 5790.09 1164.6 5795.87 1170.38 5801.62C1176.13 5807.36 1181.91 5810.91 1188.7 5813.54C1195.29 5816.09 1202.81 5817.87 1213.81 5818.35C1224.84 5818.84 1228.36 5818.96 1256.46 5818.96C1284.56 5818.96 1288.08 5818.84 1299.11 5818.35C1310.11 5817.87 1317.67 5816.09 1324.22 5813.54C1331.01 5810.91 1336.79 5807.36 1342.53 5801.62C1348.28 5795.87 1351.83 5790.09 1354.46 5783.3C1357.01 5776.71 1358.79 5769.19 1359.27 5758.19C1359.76 5747.16 1359.88 5743.64 1359.88 5715.54C1359.88 5687.44 1359.76 5683.92 1359.27 5672.89C1358.79 5661.89 1357.01 5654.33 1354.46 5647.78C1351.91 5640.91 1348.4 5635.13 1342.62 5629.38C1336.87 5623.64 1331.09 5620.09 1324.3 5617.46C1317.71 5614.91 1310.19 5613.13 1299.19 5612.65C1288.12 5612.12 1284.6 5612 1256.5 5612Z"/><path d="M1256.5 5662.34C1227.15 5662.34 1203.34 5686.15 1203.34 5715.5C1203.34 5744.85 1227.15 5768.67 1256.5 5768.67C1285.85 5768.67 1309.67 5744.85 1309.67 5715.5C1309.67 5686.15 1285.85 5662.34 1256.5 5662.34ZM1256.5 5749.99C1237.46 5749.99 1222.01 5734.54 1222.01 5715.5C1222.01 5696.46 1237.46 5681.01 1256.5 5681.01C1275.54 5681.01 1290.99 5696.46 1290.99 5715.5C1290.99 5734.54 1275.54 5749.99 1256.5 5749.99Z"/><path d="M1324.18 5660.23C1324.18 5667.11 1318.6 5672.64 1311.77 5672.64C1304.89 5672.64 1299.36 5667.06 1299.36 5660.23C1299.36 5653.36 1304.93 5647.82 1311.77 5647.82C1318.6 5647.82 1324.18 5653.4 1324.18 5660.23Z"/></g></svg></a><a href="https://plink.social/user/yeepschannel/" aria-label="Plink"><svg viewBox="1419 5612 207 207" style="width:calc(26.9*var(--u));height:calc(26.9*var(--u))" aria-hidden="true"><g fill="#131095"><path d="M1514.35 5617.7C1517.12 5610.1 1527.87 5610.1 1530.65 5617.7L1542.57 5650.36C1544.31 5655.13 1549.77 5657.39 1554.37 5655.25L1585.89 5640.58C1593.23 5637.17 1600.83 5644.77 1597.42 5652.11L1582.75 5683.63C1580.61 5688.23 1582.87 5693.69 1587.64 5695.43L1620.3 5707.35C1627.9 5710.12 1627.9 5720.87 1620.3 5723.65L1587.64 5735.57C1582.87 5737.31 1580.61 5742.77 1582.75 5747.37L1597.42 5778.89C1600.83 5786.23 1593.23 5793.83 1585.89 5790.42L1554.37 5775.75C1549.77 5773.61 1544.31 5775.87 1542.57 5780.64L1530.65 5813.3C1527.87 5820.9 1517.12 5820.9 1514.35 5813.3L1502.43 5780.64C1500.69 5775.87 1495.23 5773.61 1490.63 5775.75L1459.11 5790.42C1451.77 5793.83 1444.17 5786.23 1447.58 5778.89L1462.25 5747.37C1464.39 5742.77 1462.13 5737.31 1457.36 5735.57L1424.7 5723.65C1417.1 5720.87 1417.1 5710.12 1424.7 5707.35L1457.36 5695.43C1462.13 5693.69 1464.39 5688.23 1462.25 5683.63L1447.58 5652.11C1444.17 5644.77 1451.77 5637.17 1459.11 5640.58L1490.63 5655.25C1495.23 5657.39 1500.69 5655.13 1502.43 5650.36L1514.35 5617.7ZM1530.64 5670.72C1527.84 5663.17 1517.16 5663.17 1514.36 5670.72L1505.85 5693.73C1504.97 5696.1 1503.1 5697.97 1500.73 5698.85L1477.72 5707.36C1470.17 5710.16 1470.17 5720.84 1477.72 5723.64L1500.73 5732.15C1503.1 5733.03 1504.97 5734.9 1505.85 5737.27L1514.36 5760.28C1517.16 5767.83 1527.84 5767.83 1530.64 5760.28L1539.15 5737.27C1540.03 5734.9 1541.9 5733.03 1544.27 5732.15L1567.28 5723.64C1574.83 5720.84 1574.83 5710.16 1567.28 5707.36L1544.27 5698.85C1541.9 5697.97 1540.03 5696.1 1539.15 5693.73L1530.64 5670.72Z"/></g></svg></a></div>
 <a class="only-ch view-home footer-discord-link" href="https://bloomnetworks.net/discord" aria-label="Join our Discord"></a>
 </div>
 <nav id="menu" aria-label="Menu" aria-hidden="true" class="menu-panel"><div class="in">
 <img alt="" src="assets/img/menu-panel.svg" class="menu-panel-art">
-<img id="menu-underline" alt="" src="assets/img/menu-underline.webp" style="position:absolute;left:3.744%;top:22.832%;width:23.305%"><a href="/" data-close aria-label="Home" class="menu-home"></a><a href="/schedule" data-close aria-label="Schedule" class="menu-schedule"></a><a href="/watch" data-close aria-label="Watch" class="menu-watch"></a><a href="/fundings" data-close aria-label="Fundings" class="menu-fundings"></a><a href="/blog" data-close class="menu-blog">Blog</a><a href="https://bloomnetworks.net/discord" aria-label="Discord" class="menu-discord"></a><a href="https://www.youtube.com/@yeepschannel" aria-label="YouTube" class="menu-youtube"></a><a href="https://www.tiktok.com/@YeepsChannel" aria-label="TikTok" class="menu-tiktok"></a><a href="https://www.instagram.com/yeepschannel" aria-label="Instagram" class="menu-instagram"></a><a href="#" aria-label="Settings" class="menu-settings"></a>
+<img id="menu-underline" alt="" src="assets/img/menu-underline.webp" style="position:absolute;left:3.744%;top:22.832%;width:23.305%"><a href="/" data-close aria-label="Home" class="menu-home"></a><a href="/schedule" data-close aria-label="Schedule" class="menu-schedule"></a><a href="/watch" data-close aria-label="Watch" class="menu-watch"></a><a href="/fundings" data-close aria-label="Fundings" class="menu-fundings"></a><a href="/news" data-close class="menu-blog">Blog</a><a href="https://bloomnetworks.net/discord" aria-label="Discord" class="menu-discord"></a><a href="https://www.youtube.com/@yeepschannel" aria-label="YouTube" class="menu-youtube"></a><a href="https://www.tiktok.com/@YeepsChannel" aria-label="TikTok" class="menu-tiktok"></a><a href="https://www.instagram.com/yeepschannel" aria-label="Instagram" class="menu-instagram"></a><a href="#" aria-label="Settings" class="menu-settings"></a>
 </div></nav>
 <button id="menu-button" aria-label="Open menu" aria-expanded="false" aria-controls="menu" class="menu-button">
 <img class="bars only-ch" alt="" src="assets/img/menu-bars.webp"><img class="bars only-ds" alt="" src="assets/img/menu-bars.webp">

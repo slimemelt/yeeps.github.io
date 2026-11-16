@@ -1,7 +1,8 @@
-import { $ } from "../dom.js";
+import { $, asset } from "../dom.js";
 import { SITES } from "../config.js";
 import { getContent } from "../content.js";
 import { state, siteName } from "../state.js";
+import { reveal } from "../reveal.js";
 
 const MARKUP = /(\*\*[^*]+\*\*|\[[^\]]+\]\(https?:\/\/[^\s)]+\))/;
 
@@ -69,7 +70,7 @@ function head(post) {
   if (post.img) {
     const image = el("img", "post-thumb");
     image.alt = "";
-    image.src = post.img;
+    image.src = asset(post.img);
     header.append(image);
   }
   return header;
@@ -86,19 +87,20 @@ function renderList() {
   list.replaceChildren(
     ...items.map((post) => {
       const card = el("a", "post-card");
-      card.href = `/blog/${post.id}`;
+      card.href = `/news/${post.id}`;
       card.append(head(post), el("p", "post-excerpt", excerpt(post)), el("span", "post-go", "Read more"));
       const item = el("li");
       item.append(card);
       return item;
     }),
   );
+  reveal([...list.children]);
 }
 
 function renderPost(id) {
   const body = $("post-body");
-  const back = el("a", "post-back", "Blog");
-  back.href = "/blog";
+  const back = el("a", "post-back", "News");
+  back.href = "/news";
   const post = posts().find((candidate) => candidate.id === id);
   if (!post) {
     body.replaceChildren(back, el("p", "blog-empty", "We couldn’t find that post."));
@@ -116,5 +118,42 @@ function renderPost(id) {
 
 export function renderBlog() {
   if (state.view === "blog") renderList();
-  if (state.view === "post") renderPost(decodeURIComponent(location.pathname.slice("/blog/".length)));
+  if (state.view === "post") renderPost(decodeURIComponent(location.pathname.slice("/news/".length)));
+}
+
+/** Home page: the three newest published posts. The section disappears when there are none. */
+export function renderHomeNews() {
+  const block = $("home-news");
+  const items = posts().slice(0, 3);
+  block.hidden = !items.length;
+  $("home-news-list").replaceChildren(
+    ...items.map((post) => {
+      const row = el("a", "news-row");
+      row.href = `/news/${post.id}`;
+      if (post.img) {
+        const image = el("img");
+        image.alt = "";
+        image.src = asset(post.img);
+        row.append(image);
+      }
+      const text = el("div");
+      const date = el("time", null, formatDate(post.date));
+      date.dateTime = post.date;
+      text.append(date, el("h3", null, post.title), el("p", null, excerpt(post)));
+      row.append(text);
+      return row;
+    }),
+  );
+  fitHomeHeight();
+  reveal([...$("home-news-list").children]);
+}
+
+// The home artboard is a fixed Figma height; stretch it to fit however many posts there are.
+export function fitHomeHeight() {
+  const stage = $("stage");
+  const unit = stage.clientWidth / 1047;
+  const block = $("home-news");
+  let height = 2624;
+  if (!block.hidden && unit) height = Math.round((block.offsetTop + block.offsetHeight) / unit) + 434;
+  stage.style.setProperty("--home-h", height);
 }

@@ -1,4 +1,4 @@
-import { $, stage, prefersReducedMotion } from "../dom.js";
+import { $, stage, asset, prefersReducedMotion } from "../dom.js";
 import { DESIGN_WIDTH } from "../config.js";
 import { state } from "../state.js";
 import { getContent } from "../content.js";
@@ -46,7 +46,7 @@ function showSlide(index) {
   }
   slideIndex = (index + banners.length) % banners.length;
   clearInterval(slideTimer);
-  bannerImage.src = banners[slideIndex].src;
+  bannerImage.src = asset(banners[slideIndex].src);
   bannerImage.alt = banners[slideIndex].alt || "";
   setBannerLink(banners[slideIndex].link);
   [...dots.children].forEach((dot, i) => dot.setAttribute("aria-current", i === slideIndex));
@@ -91,7 +91,7 @@ function renderFeatured() {
   }
   showIndex = Math.min(showIndex, shows.length - 1);
   const show = shows[showIndex];
-  $("featured-image").src = show.img;
+  $("featured-image").src = asset(show.img);
   $("featured-image").alt = show.title;
   $("featured-name").textContent = show.title;
   $("featured-blurb").textContent = show.desc || "";
