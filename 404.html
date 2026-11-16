@@ -45,6 +45,13 @@
     return redirects.find((row) => row.host === host && row.path === path)?.url;
   }
 
+  // Pages of the site itself (/fundings, /blog/some-post…): hand the path to index.html.
+  const PAGES = ["schedule", "watch", "fundings", "blog", "dmca", "admin"];
+  if (host !== "bloomnetworks.net" && PAGES.includes(path.split("/")[0])) {
+    try { sessionStorage.setItem("ypch-path", location.pathname + location.search + location.hash); } catch {}
+    location.replace("/");
+  }
+
   try {
     const destination = await findDestination();
     if (destination) location.replace(destination);
