@@ -52,7 +52,9 @@ function render() {
   // Redirects and the password apply to every site and have their own buttons.
   const sharedTab = tab === "redirects" || tab === "password";
   $("admin-site").hidden = sharedTab;
-  document.querySelector(".admin .savebar").hidden = sharedTab;
+  // The bar stays up on these tabs so save confirmations and errors are visible; only the content buttons go.
+  $("admin-save").hidden = sharedTab;
+  $("admin-revert").hidden = sharedTab;
 }
 
 function showSignedIn(signedIn) {
