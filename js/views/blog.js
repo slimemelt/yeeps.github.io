@@ -62,17 +62,19 @@ function excerpt(post) {
   return plain.length > 240 ? `${plain.slice(0, 240).replace(/\s+\S*$/, "")}…` : plain;
 }
 
+function cover(post) {
+  const image = el("img", "post-cover");
+  image.alt = "";
+  image.loading = "lazy";
+  image.src = asset(post.img);
+  return image;
+}
+
 function head(post) {
-  const header = el("div", `post-head${post.img ? " has-image" : ""}`);
+  const header = el("div", "post-head");
   const date = el("time", "post-date", formatDate(post.date));
   date.dateTime = post.date;
   header.append(el("h2", "post-title", post.title), date);
-  if (post.img) {
-    const image = el("img", "post-thumb");
-    image.alt = "";
-    image.src = asset(post.img);
-    header.append(image);
-  }
   return header;
 }
 
@@ -88,7 +90,8 @@ function renderList() {
     ...items.map((post) => {
       const card = el("a", "post-card");
       card.href = `/news/${post.id}`;
-      card.append(head(post), el("p", "post-excerpt", excerpt(post)), el("span", "post-go", "Read more"));
+      const excerptText = el("p", `post-excerpt${post.img ? " has-cover" : ""}`, excerpt(post));
+      card.append(head(post), excerptText, ...(post.img ? [cover(post)] : []), el("span", "post-go", "Read more"));
       const item = el("li");
       item.append(card);
       return item;
@@ -109,7 +112,7 @@ function renderPost(id) {
   const article = el("article", "post-card post-full");
   const text = el("div", "post-text");
   text.append(...formatBody(post.body));
-  article.append(head(post), text);
+  article.append(head(post), text, ...(post.img ? [cover(post)] : []));
   body.replaceChildren(back, article);
   const title = `${post.title} – ${siteName()}`;
   document.title = title;
