@@ -3,6 +3,7 @@
 html[data-view=admin][data-site=ch] body { background: var(--yellow); }
 html[data-view=admin][data-site=ch] #background { display: none; }
 .stage[data-view=admin][data-site=ch] { background: var(--yellow); }
+.stage[data-view=admin] #admin-page { padding-top: calc(235*var(--u)); }
 
 .admin {
   --ink: var(--navy);
