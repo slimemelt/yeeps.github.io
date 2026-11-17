@@ -63,12 +63,16 @@ export async function onRedirectClick(button, ui) {
     unsaved = true;
     ui.render();
   } else if (action === "save") {
+    if (button.disabled) return;
     const filled = rows.filter((row) => row.path.trim() || row.url.trim());
+    // The store accepts about one write a second, so a double tap must not send two.
+    button.disabled = true;
     try {
       await store.saveRedirects(filled);
     } catch (error) {
+      button.disabled = false;
       if (error.status === 401) ui.signedOut();
-      else ui.toast(`Couldn’t save (${error.message}).`);
+      else ui.toast(`Couldn’t save (${error.message}). Wait a moment and try once more.`);
       return;
     }
     await loadRedirects();
