@@ -72,6 +72,7 @@ export async function onRedirectClick(button, ui) {
     } catch (error) {
       button.disabled = false;
       if (error.status === 401) ui.signedOut();
+      else if (error.status === 409) ui.toast(error.message);
       else ui.toast(`Couldn’t save (${error.message}). Wait a moment and try once more.`);
       return;
     }

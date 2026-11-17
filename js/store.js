@@ -41,15 +41,20 @@ const remote = {
       body: JSON.stringify(data),
     });
   },
+  // The server's fingerprint of the list we opened; sent back so a stale tab cannot overwrite a newer list.
+  redirectsVersion: undefined,
   async loadRedirects() {
-    return (await (await request("/redirects", { cache: "no-store" })).json()).redirects;
+    const data = await (await request("/redirects", { cache: "no-store" })).json();
+    this.redirectsVersion = data.version;
+    return data.redirects;
   },
   async saveRedirects(redirects) {
-    await request("/redirects", {
+    const response = await request("/redirects", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ redirects }),
+      body: JSON.stringify({ redirects, version: this.redirectsVersion }),
     });
+    this.redirectsVersion = (await response.json().catch(() => ({}))).version;
   },
   async uploadImage(blob) {
     const response = await request("/media", { method: "POST", headers: { "Content-Type": blob.type }, body: blob });

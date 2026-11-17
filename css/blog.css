@@ -33,7 +33,6 @@ html[data-site=ch]:is([data-view=blog],[data-view=post]) body{background:#fff}
 .post-full .post-head{height:auto;min-height:calc(122*var(--u));padding-top:calc(16*var(--u));padding-bottom:calc(16*var(--u))}
 .post-full .post-title{font-size:calc(46*var(--u));white-space:normal;line-height:1}
 .post-full .post-excerpt.has-cover{padding-bottom:calc(30*var(--u))}
-.post-cover{display:block;box-sizing:border-box;width:calc(100% - 66*var(--u));aspect-ratio:16/9;margin:0 auto calc(84*var(--u));border-radius:calc(10*var(--u));object-fit:cover;background:#ececec}
 .post-text{padding:calc(36*var(--u)) calc(33*var(--u)) calc(44*var(--u));font-size:calc(31*var(--u));line-height:calc(38*var(--u));overflow-wrap:anywhere}
 .post-text p{margin:0 0 calc(24*var(--u));white-space:pre-line}
 .post-text h2{margin:calc(34*var(--u)) 0 calc(14*var(--u));font-size:calc(40*var(--u));line-height:1.05;font-weight:900;text-transform:uppercase;color:var(--tc)}
