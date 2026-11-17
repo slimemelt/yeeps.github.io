@@ -96,5 +96,5 @@
 .news-star-g{left:calc(930*var(--u));top:calc(200*var(--u));width:calc(112*var(--u))}
 .news-star-p{left:calc(-18*var(--u));top:calc(440*var(--u));width:calc(150*var(--u))}
 
-.stage[data-view=legal]{aspect-ratio:auto;min-height:calc(2574*var(--u))}
+.stage[data-view=legal]{aspect-ratio:auto;min-height:0}
 #legal-page{padding:calc(196*var(--u)) 0 calc(470*var(--u))}
