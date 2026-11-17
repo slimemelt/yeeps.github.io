@@ -154,6 +154,8 @@ export function renderHomeNews() {
 // The home artboard is a fixed Figma height; stretch it to fit however many posts there are.
 export function fitHomeHeight() {
   const stage = $("stage");
+  // The block has no size while another page is showing, so measure only on Home.
+  if (stage.dataset.view !== "home") return;
   const unit = stage.clientWidth / 1047;
   const block = $("home-news");
   let height = 2624;

@@ -4,7 +4,7 @@ import { state, siteName } from "./state.js";
 import { placeUnderline } from "./menu.js";
 import { ensurePlayer, pausePlayer } from "./views/player.js";
 import { fitFundingsText } from "./views/fundings.js";
-import { renderBlog } from "./views/blog.js";
+import { renderBlog, fitHomeHeight } from "./views/blog.js";
 import { renderLegal } from "./views/legal.js";
 
 export function updateTitle() {
@@ -17,6 +17,7 @@ export function applyView(view) {
   state.view = view;
   stage.dataset.view = view;
   document.documentElement.dataset.view = view;
+  fitHomeHeight();
   placeUnderline(view);
   const tab = view === "post" ? "blog" : view;
   document.querySelectorAll(".home-tabs a").forEach((a) => (a.dataset.tab === tab ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current")));
