@@ -56,7 +56,7 @@
 .news-row,.news-row:hover{display:flex;gap:calc(26*var(--u));align-items:center;padding:calc(22*var(--u)) 0;text-decoration:none;color:#fff}
 .news-row+.news-row{border-top:calc(2*var(--u)) solid rgba(255,255,255,.16)}
 .news-row img{flex:none;width:calc(170*var(--u));aspect-ratio:16/9;object-fit:cover;border-radius:calc(16*var(--u));border:calc(3.5*var(--u)) solid var(--yellow)}
-.news-row time{display:block;margin-bottom:calc(6*var(--u));font-size:clamp(11px,calc(24*var(--u)),15px);line-height:1.1;color:var(--yellow);letter-spacing:.04em;font-variant-numeric:lining-nums}
+.news-row time{font-family:"Varela Round",sans-serif;font-weight:400;display:block;margin-bottom:calc(6*var(--u));font-size:clamp(11px,calc(24*var(--u)),15px);line-height:1.1;color:var(--yellow);letter-spacing:.04em;font-variant-numeric:lining-nums}
 .news-row h3{margin:calc(4*var(--u)) 0 0;font-size:calc(35*var(--u));line-height:1;font-weight:400;text-transform:uppercase}
 .news-row p{margin:calc(4*var(--u)) 0 0;font:400 calc(17*var(--u))/1.15 "Varela Round",sans-serif;opacity:.85;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .news-more{display:block;width:max-content;margin:calc(50*var(--u)) auto 0;font-size:calc(34*var(--u));line-height:1;color:var(--navy);text-decoration:underline;text-decoration-thickness:calc(3*var(--u));text-underline-offset:calc(5*var(--u))}

@@ -19,7 +19,7 @@ html[data-site=ch]:is([data-view=blog],[data-view=post]) body{background:#fff}
 .post-card{position:relative;display:block;box-sizing:border-box;min-height:calc(260*var(--u));border:calc(3*var(--u)) solid var(--lc);border-radius:calc(22.6*var(--u));background:var(--card);color:var(--lc);text-decoration:none}
 .post-head{position:relative;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;height:calc(107*var(--u));padding:0 calc(33*var(--u));border-bottom:calc(4.5*var(--u)) solid var(--pink)}
 .post-title{margin:0;overflow-wrap:anywhere;font-size:calc(30*var(--u));line-height:1.1;font-weight:900;text-transform:uppercase;color:var(--tc)}
-.post-date{display:block;margin-top:calc(4*var(--u));font-size:calc(20*var(--u));line-height:1;color:var(--lc);opacity:.6}
+.post-date{font-family:"Varela Round",sans-serif;font-weight:400;display:block;margin-top:calc(4*var(--u));font-size:calc(20*var(--u));line-height:1;color:var(--lc);opacity:.6}
 .post-excerpt.has-cover{padding-bottom:calc(30*var(--u))}
 .post-cover{display:block;box-sizing:border-box;width:calc(100% - 66*var(--u));aspect-ratio:16/9;margin:0 auto calc(84*var(--u));border-radius:calc(10*var(--u));object-fit:cover;background:#ececec}
 .post-excerpt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;margin:0;padding:calc(38*var(--u)) calc(33*var(--u)) calc(70*var(--u));font-size:calc(31*var(--u));line-height:calc(35*var(--u))}
