@@ -4,7 +4,7 @@ html[data-view=fund]{min-height:100%;background-color:#e50081;background-repeat:
   radial-gradient(calc(var(--sw)*1.2) calc(var(--sw)*1.45) at calc(50% + var(--sw)/2) 0, #f9b10f 46%, rgba(249,177,15,0)),
   radial-gradient(calc(var(--sw)*1.9) calc(var(--sw)*3.2) at calc(50% - var(--sw)/2) 100%, #00a1f5 32%, #e50081 92%)}
 html[data-view=fund] body,.stage[data-view=fund]{background:transparent}
-.stage[data-view=fund]{--tc:#e3e3ff;--lc:#fff}
+.stage[data-view=fund]{--tc:#e3e3ff;--lc:#fff;overflow:visible;clip-path:inset(calc(-120*var(--u)) -100vw 0)}
 html[data-view=fund] #background{display:none}
 
 .fund-text {
