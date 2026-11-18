@@ -29,6 +29,7 @@
 .stage:not([data-view=watch]) .view-watch,
 .stage:not([data-view=fund]) .view-fund,
 .stage:not([data-view=blog]):not([data-view=post]) .view-blog,
+.stage:not([data-view=legal]) .view-legal,
 .stage:is([data-view=schedule],[data-view=admin],[data-view=watch],[data-view=fund],[data-view=blog],[data-view=post],[data-view=legal]) .hide-on-subpages{display:none!important}
 img.art,img.layer{display:block;max-width:none;height:auto}
 img.layer{pointer-events:none}

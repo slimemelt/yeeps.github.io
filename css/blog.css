@@ -35,3 +35,4 @@ html[data-site=ch]:is([data-view=blog],[data-view=post]) body{background:#fff}
 .post-text>:last-child{margin-bottom:0}
 .post-text a{color:var(--pink);text-decoration:underline;text-decoration-thickness:calc(2*var(--u))}
 .post-text strong{font-weight:900}
+.legal-shapes{z-index:0;left:calc(-520*var(--u));top:0;width:calc(1513.5*var(--u))}
