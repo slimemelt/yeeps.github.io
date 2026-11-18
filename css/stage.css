@@ -29,7 +29,6 @@
 .stage[data-site=ch] .only-ds,
 .stage[data-site=ds] .only-ch,
 .stage:not([data-view=home]) .view-home,
-.stage:not([data-view=dmca]) .view-dmca,
 .stage:not([data-view=watch]) .view-watch,
 .stage:not([data-view=fund]) .view-fund,
 .stage:not([data-view=blog]):not([data-view=post]) .view-blog,

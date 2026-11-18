@@ -22,7 +22,7 @@ export const SITES = {
 
 // Hash route -> view name. Anything not listed is the home view.
 export const ROUTES = {
-  "/dmca": "dmca",
+  "/dmca": "legal",
   "/terms": "legal",
   "/privacy": "legal",
   "/schedule": "schedule",
@@ -33,7 +33,6 @@ export const ROUTES = {
 };
 
 export const VIEW_TITLES = {
-  dmca: "DMCA",
   schedule: "Schedule",
   watch: "Watch",
   fund: "Fundings",
