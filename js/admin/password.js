@@ -7,7 +7,6 @@ const MESSAGES = {
   429: "Too many tries. Wait a few minutes.",
 };
 
-// The Worker answers 401 both for a wrong current password and for an ended session.
 const sessionEnded = (error) => error.status === 401 && error.message === "sign in first";
 
 export function passwordHtml() {
@@ -23,7 +22,6 @@ export function passwordHtml() {
   </form>`;
 }
 
-/** Submit handler for the form above. `ui.signedOut` runs if the session has already ended. */
 export async function onPasswordSubmit(form, ui) {
   const message = form.querySelector("#admin-password-message");
   const data = new FormData(form);

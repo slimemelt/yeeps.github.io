@@ -4,7 +4,6 @@ import { getContent } from "../content.js";
 
 const HOME_ROWS = 4;
 
-// "11/7" in New York time, used when the admin leaves the date blank.
 function todayEastern() {
   try {
     return new Date().toLocaleDateString("en-US", { timeZone: "America/New_York", month: "numeric", day: "numeric" });
@@ -23,7 +22,6 @@ function eventMarkup(entry) {
   return `<li class="event"><time>${escapeHtml(entry.time)}</time><h3>${escapeHtml(entry.title)}${marks}</h3>${by}</li>`;
 }
 
-// The cards on the home and watch views list the first few shows.
 export function renderScheduleRows() {
   const shows = getContent(state.site).schedule.filter((entry) => entry.type === "show").slice(0, HOME_ROWS);
   const markup = shows
