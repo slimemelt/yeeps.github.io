@@ -17,3 +17,4 @@
 .stage[data-view=pintoss] .header-rule{top:calc(177*var(--u))}
 .stage[data-view=pintoss] .site-toggle{left:79.57%}
 #menu-button,#menu{display:none!important}
+.pintoss-shapes{z-index:0;left:calc(-520*var(--u));top:0;width:calc(1513.5*var(--u))}
