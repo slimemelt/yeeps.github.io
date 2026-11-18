@@ -46,16 +46,6 @@
 .home-featured-card{left:23.4%;top:calc(1841*var(--u));width:52.15%;height:calc(220*var(--u))}
 .home-featured-name{left:11.46%;top:calc(2086*var(--u));width:77.08%}
 .home-featured-blurb{left:13.28%;width:73.45%}
-.footer-discord-disc {
-  left:calc(776.8*var(--u));
-  top:calc(175.8*var(--u));
-  width:calc(215.6*var(--u));
-  aspect-ratio:1;
-  border-radius:50%;
-  background:#2b3439;
-}
-.footer-discord-mark{left:81.18%;top:calc(255*var(--u));width:6.69%}
-.footer-discord-link{border-radius:50%;left:74.21%;top:calc(176*var(--u));width:20.63%;height:calc(216*var(--u))}
 
 /* fund */
 .fund-shapes{z-index:1;left:calc(-400*var(--u));top:calc(-120*var(--u));width:calc(1847*var(--u))}
