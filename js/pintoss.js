@@ -104,7 +104,11 @@ function playHit() {
   do i = Math.floor(Math.random() * sounds.length); while (i === lastSound && sounds.length > 1);
   lastSound = i;
   play(sounds[i]);
-  if (stab) play(stab);
+  playStab();
+}
+
+function playStab() {
+  if (audio && stab) play(stab);
 }
 
 function startWhistle(pin) {
@@ -328,6 +332,7 @@ function updatePin(pin, dt) {
         pin.y = FLOOR - Math.sin(pin.a) * pin.len;
         pin.state = "down";
         stopWhistle(pin);
+        playStab();
         pin.wait = 1.2;
       }
       if (pin.x < -80 || pin.x > W + 80) sendHome(pin);
