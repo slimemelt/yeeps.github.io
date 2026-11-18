@@ -4,11 +4,11 @@ Static site for yeeps.bloomnetworks.net: Channel / Don't Sleep, schedule, Watch 
 
 ## Layout
 
-- `index.html` – markup only, one `<section>` per view
-- `css/` – `base` (tokens, reset), `stage` (artboard scaling, view visibility), `layout` (positioned art, from the Figma export), one file per view
-- `js/` – ES modules: `router`, `menu`, `loader`, `content`, `store`, `views/*`, `admin/*` (lazy-loaded)
-- `content/` – `channel.json`, `dont-sleep.json` (shows, schedule, text)
-- `assets/` – `img/` artwork, `icons/` player icons
+- `index.html` - markup only, one `<section>` per view
+- `css/` - `base` (tokens, reset), `stage` (artboard scaling, view visibility), `layout` (positioned art, from the Figma export), one file per view
+- `js/` - ES modules: `router`, `menu`, `loader`, `content`, `store`, `views/*`, `admin/*` (lazy-loaded)
+- `content/` - `channel.json`, `dont-sleep.json` (shows, schedule, text)
+- `assets/` - `img/` artwork, `icons/` player icons
 
 ## Run locally
 
