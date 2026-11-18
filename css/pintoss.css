@@ -12,3 +12,8 @@
 .footer-social a{display:block;line-height:0}
 .footer-social svg g{fill:var(--navy)}
 .stage[data-site=ds] .footer-social svg g{fill:#e3e3ff}
+.home-tabs{z-index:4;left:5.54%;top:calc(135*var(--u));width:87.78%;height:calc(46*var(--u));display:flex;gap:calc(5*var(--u));font-size:calc(29*var(--u));line-height:1;text-transform:uppercase;letter-spacing:.03em}
+.home-tabs a,.home-tabs a:hover{display:flex;align-items:center;padding:0 calc(17*var(--u)) calc(3*var(--u));background:var(--pink);color:#fff;border-radius:calc(13*var(--u)) calc(13*var(--u)) 0 0;text-decoration:none;transition:background-color .25s ease,color .25s ease}
+.stage[data-view=pintoss] .header-rule{top:calc(177*var(--u))}
+.stage[data-view=pintoss] .site-toggle{left:79.57%}
+#menu-button,#menu{display:none!important}
