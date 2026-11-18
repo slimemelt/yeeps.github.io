@@ -78,7 +78,7 @@
 .site-toggle{left:79.57%}
 
 /* every page sits below the tab row */
-.stage[data-view=fund] .view-fund,.stage[data-view=watch] .view-watch,.stage[data-view=dmca] .view-dmca,.stage[data-view=legal] #legal-page,.stage[data-view=blog] .view-blog,.stage[data-view=post] .view-blog{translate:0 calc(50*var(--u))}
+.stage[data-view=fund] .view-fund,.stage[data-view=watch] .view-watch,.stage[data-view=legal] #legal-page,.stage[data-view=blog] .view-blog,.stage[data-view=post] .view-blog{translate:0 calc(50*var(--u))}
 .stage[data-view=fund]{aspect-ratio:1047/2280}
 .stage[data-view=schedule] #schedule-page,.stage:is([data-view=blog],[data-view=post]) .page.blog{translate:0 calc(50*var(--u))}
 .stage[data-view=schedule] #schedule-page{padding-bottom:calc(450*var(--u))}
