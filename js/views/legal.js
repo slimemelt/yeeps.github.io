@@ -1,10 +1,8 @@
 import { $ } from "../dom.js";
 import { siteName } from "../state.js";
 
-// Taken at load: pushState changes the page address, which would break relative file paths later.
 const ROOT = document.baseURI;
 
-/** Terms and Privacy live as plain HTML files; show the one the address points at. */
 export async function renderLegal() {
   const name = location.pathname.replace(/^\/+|\/+$/g, "");
   const body = $("legal-body");
