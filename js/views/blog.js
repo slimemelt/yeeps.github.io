@@ -114,7 +114,7 @@ function renderPost(id) {
   text.append(...formatBody(post.body));
   article.append(head(post), text, ...(post.img ? [cover(post)] : []));
   body.replaceChildren(back, article);
-  const title = `${post.title} – ${siteName()}`;
+  const title = `${post.title} - ${siteName()}`;
   document.title = title;
   $("page-title").textContent = title;
 }

@@ -14,7 +14,7 @@ export async function renderLegal() {
     const doc = new DOMParser().parseFromString(await response.text(), "text/html");
     const parts = [...doc.querySelectorAll(".legal > :not(header):not(footer)")];
     body.replaceChildren(...parts.map((node) => document.importNode(node, true)));
-    document.title = `${doc.querySelector("h1").textContent} – ${siteName()}`;
+    document.title = `${doc.querySelector("h1").textContent} - ${siteName()}`;
     $("page-title").textContent = document.title;
   } catch {
     body.textContent = "We couldn’t load this page.";

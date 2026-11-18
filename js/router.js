@@ -9,7 +9,7 @@ import { renderLegal } from "./views/legal.js";
 
 export function updateTitle() {
   const label = VIEW_TITLES[state.view];
-  document.title = (label ? `${label} – ` : "") + siteName();
+  document.title = (label ? `${label} - ` : "") + siteName();
   $("page-title").textContent = document.title;
 }
 
