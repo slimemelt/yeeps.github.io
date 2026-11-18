@@ -1,5 +1,3 @@
-// Site content (banners, schedule, featured shows, text).
-// Order of precedence: what the backend has saved, otherwise the JSON shipped in /content.
 import { SITES } from "./config.js";
 import { clone } from "./dom.js";
 import { store } from "./store.js";
@@ -27,9 +25,7 @@ export async function loadContent() {
       let saved = null;
       try {
         saved = await store.load(site);
-      } catch {
-        /* backend unreachable: the shipped content is still a fine page */
-      }
+      } catch {}
       current[site] = withDefaults(site, saved || defaults[site]);
     })
   );

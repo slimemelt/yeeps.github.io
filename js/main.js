@@ -33,7 +33,6 @@ toggle.addEventListener("click", () => {
   renderSite();
 });
 
-// The admin saves new content; refresh whatever is on screen.
 onContentChange((site) => site === state.site && renderSite());
 
 addEventListener("popstate", () => route());
@@ -41,7 +40,6 @@ document.addEventListener("click", (event) => {
   const link = event.target.closest("a[href]");
   if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || link.target) return;
   const href = link.getAttribute("href");
-  // Banner links saved as "#schedule" in the admin map to the same clean paths.
   const path = href === "#home" ? "/" : href.startsWith("#") && ROUTES["/" + href.slice(1)] ? "/" + href.slice(1) : href;
   if (!path.startsWith("/") || path.startsWith("//")) return;
   event.preventDefault();

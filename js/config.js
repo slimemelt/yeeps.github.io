@@ -1,18 +1,12 @@
-// Everything that is likely to change between environments or releases lives here.
 
 export const STREAM_URL = "https://watch.mistlive.tv/hls/yeeps/playlist.m3u8";
 export const HLSJS_URL = "https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.17/hls.min.js";
 
-// Base URL of the Cloudflare Worker (see /worker in the repo root).
-// Leave empty to run without a backend: the admin is then limited to local development.
 export const API_BASE = "https://api.bloomnetworks.net";
 
-// Without a backend the admin only edits a private copy in the visitor's browser,
-// so it is limited to local development. With API_BASE set it is available everywhere.
 const isLocalHost = ["localhost", "127.0.0.1"].includes(location.hostname);
 export const ADMIN_ENABLED = Boolean(API_BASE) || isLocalHost;
 
-// Sites that can have short links (must match HOSTS in the Worker).
 export const REDIRECT_HOSTS = ["bloomnetworks.net", "yeeps.bloomnetworks.net", "monarch.bloomnetworks.net"];
 
 export const SITES = {
@@ -20,7 +14,6 @@ export const SITES = {
   ds: { key: "ds", name: "Yeeps Don’t Sleep", file: "dont-sleep.json" },
 };
 
-// Hash route -> view name. Anything not listed is the home view.
 export const ROUTES = {
   "/dmca": "legal",
   "/terms": "legal",
@@ -40,7 +33,6 @@ export const VIEW_TITLES = {
   admin: "Admin",
 };
 
-// Where the hand-drawn underline sits under the active menu item: [left %, top %, width %].
 export const MENU_UNDERLINE = {
   home: [3.744, 22.832, 23.305],
   schedule: [3.534, 34.336, 44.89],
@@ -50,5 +42,5 @@ export const MENU_UNDERLINE = {
   post: [3.534, 66.2, 21.0],
 };
 
-export const DESIGN_WIDTH = 1047; // width of the Figma artboard, in px
+export const DESIGN_WIDTH = 1047;
 export const SITE_STORAGE_KEY = "ypch-site";

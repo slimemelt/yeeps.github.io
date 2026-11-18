@@ -1,5 +1,3 @@
-// Where site content is kept. With an API configured it lives in the Cloudflare Worker;
-// without one (local development, previews) it falls back to this browser's localStorage.
 import { API_BASE } from "./config.js";
 
 const draftKey = (site) => `ypch-draft-${site}`;
@@ -25,7 +23,6 @@ const remote = {
       throw error;
     }
   },
-  // The admin also gets unpublished posts, which the public read leaves out.
   async loadAdmin(site) {
     try {
       return await (await request(`/content/${site}?drafts=1`)).json();
@@ -41,7 +38,6 @@ const remote = {
       body: JSON.stringify(data),
     });
   },
-  // The server's fingerprint of the list we opened; sent back so a stale tab cannot overwrite a newer list.
   redirectsVersion: undefined,
   async loadRedirects() {
     const data = await (await request("/redirects", { cache: "no-store" })).json();
