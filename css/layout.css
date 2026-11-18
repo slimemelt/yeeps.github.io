@@ -81,10 +81,10 @@
 
 .footer-scene-ch{left:-5.73%;top:calc(0*var(--u));width:111.46%}
 .footer-scene-ds,.footer-scene-legal-ch,.footer-scene-legal-ds{left:-5.73%;top:calc(0*var(--u));width:111.46%}
-.footer-scene-legal-ch,.footer-scene-legal-ds,.footer-dummy{display:none}
-.stage[data-view=legal] :is(.footer-scene-ch,.footer-scene-ds){display:none}
-.stage[data-view=legal][data-site=ch] .footer-scene-legal-ch,.stage[data-view=legal][data-site=ds] .footer-scene-legal-ds{display:block}
-.stage[data-view=legal] .footer-dummy{display:block;left:46%;top:0;width:24%;height:calc(360*var(--u))}
+.site-footer :is(.footer-scene-legal-ch,.footer-scene-legal-ds,.footer-dummy){display:none}
+.stage[data-view=legal] .site-footer :is(.footer-scene-ch,.footer-scene-ds){display:none}
+.stage[data-view=legal][data-site=ch] .site-footer .footer-scene-legal-ch,.stage[data-view=legal][data-site=ds] .site-footer .footer-scene-legal-ds{display:block}
+.stage[data-view=legal] .site-footer .footer-dummy{display:block;left:46%;top:0;width:24%;height:calc(360*var(--u))}
 .footer-legal-text{left:8.69%;top:calc(217*var(--u));width:44%}
 .footer-copyright{font-family:"Varela Round",sans-serif;font-weight:400}
 .footer-bloom-ch{left:8.75%;top:calc(287.6*var(--u));width:9.47%}
