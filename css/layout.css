@@ -1,7 +1,4 @@
-/* Positions of the art-directed elements, measured from the Figma export.
- * Units: --u is 1/1047 of the stage width, so every number below is a Figma pixel. */
 
-/* shared */
 .header-home{z-index:2;left:5.79%;top:calc(30.6*var(--u));width:5.62%}
 .header-mark-ds{left:5.5%;top:calc(44*var(--u));width:6.42%;z-index:2}
 .header-rule{z-index:2;left:5.54%;top:calc(127*var(--u));width:87.78%;height:calc(4*var(--u));background:var(--blue);border-radius:99px}
@@ -11,16 +8,12 @@
 .menu-button-close{left:-3.98%;top:1.14%;width:107.95%}
 .site-toggle{z-index:20;left:69.69%;top:calc(50.4*var(--u));width:13.75%}
 
-/* decorative corner shape, home only */
 .corner-shape-ch,.corner-shape-ds{z-index:5;left:85.96%;top:calc(1460*var(--u));width:14.33%}
 
-/* loader */
 .loader-pin{left:26.58%;top:0.11%;width:61.06%}
 .loader-wordmark{left:0.29%;top:78.38%;width:84.2%}
 .loader-dots{left:85.2%;top:95.38%;width:14.29%}
 
-/* home */
-/* Full, uncropped artwork: 1 art unit = 0.148386u, origin offset by the shapes that hang outside the page */
 .home-shapes{left:calc(-386.1*var(--u));top:calc(-367.9*var(--u));width:calc(1584.4*var(--u))}
 .home-banner{z-index:2;left:5.54%;top:calc(209*var(--u));width:87.78%;height:calc(227*var(--u))}
 .home-dots{z-index:3;left:7.35%;top:calc(406*var(--u))}
@@ -47,7 +40,6 @@
 .home-featured-name{left:11.46%;top:calc(2086*var(--u));width:77.08%}
 .home-featured-blurb{left:13.28%;width:73.45%}
 
-/* fund */
 .fund-shapes{z-index:1;left:calc(-400*var(--u));top:calc(-120*var(--u));width:calc(1847*var(--u))}
 .fund-logo{z-index:3;left:calc(123.5*var(--u));top:calc(120*var(--u));width:calc(800*var(--u))}
 .fund-intro-text{--fs:31;left:5.25%;top:calc(456*var(--u));width:89.49%;height:calc(570*var(--u))}
@@ -56,7 +48,6 @@
 .fund-pitch-heading{top:calc(1485*var(--u))}
 .fund-pitch-text{--fs:31;left:4.4%;top:calc(1664*var(--u));width:91.2%;height:calc(168*var(--u))}
 
-/* watch */
 .watch-bg{left:calc(-415.5*var(--u));top:calc(-445.1*var(--u));width:calc(1647.1*var(--u))}
 .watch-title{left:33.13%;top:calc(157.6*var(--u));width:34.19%;z-index:3}
 .watch-player{left:7.35%;top:calc(336*var(--u));width:85.2%;height:calc(507*var(--u))}
@@ -68,7 +59,6 @@
 .watch-chat-text{left:0;top:calc(1633*var(--u));width:100%}
 .watch-discord{left:16.33%;top:calc(1779*var(--u));width:67.33%;height:calc(137.5*var(--u))}
 
-/* schedule */
 .schedule-swoosh-ch{position:absolute;left:calc(-4.00*var(--t));top:calc(66.00*var(--t));width:calc(330.00*var(--t))}
 .schedule-swoosh-ds{position:absolute;left:calc(-6.00*var(--t));top:calc(82.00*var(--t));width:calc(332.00*var(--t))}
 .schedule-logo-ch{left:calc(-12.00*var(--t));top:calc(-12.00*var(--t));width:calc(137.00*var(--t))}
@@ -76,9 +66,7 @@
 .schedule-badge-ch{left:calc(212.00*var(--t));top:calc(24.00*var(--t));width:calc(102.00*var(--t))}
 .schedule-badge-ds{left:calc(210.00*var(--t));top:calc(16.00*var(--t));width:calc(92.00*var(--t))}
 
-/* menu */
 .menu-panel{z-index:10;left:0;top:0;width:100%;height:calc(1140*var(--u))}
-/* Full panel artwork: the flower hangs past the panel, and the top 1073 art units sit above the page */
 .menu-panel-art{left:0;top:calc(-159.2*var(--u));width:calc(1592.1*var(--u))}
 .menu-home{left:2.96%;top:13.8%;width:23.78%;height:9.03%}
 .menu-schedule{left:2.77%;top:25.13%;width:46.42%;height:9.12%}
@@ -91,7 +79,6 @@
 .menu-instagram{left:15.76%;top:69.17%;width:4.01%;height:4.25%}
 .menu-settings{left:19.48%;top:69.17%;width:4.01%;height:4.25%}
 
-/* foot */
 .footer-scene-ch{left:-5.73%;top:calc(0*var(--u));width:111.46%}
 .footer-scene-ds{left:-5.73%;top:calc(0*var(--u));width:111.46%}
 .footer-legal-text{left:8.69%;top:calc(217*var(--u));width:44%}

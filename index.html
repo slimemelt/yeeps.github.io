@@ -17,7 +17,6 @@
 <meta property="og:image:alt" content="Yeeps Channel">
 <meta name="twitter:card" content="summary_large_image">
 <script>
-  // 404.html hands a clean path (e.g. /fundings) back here, since GitHub Pages only serves real files.
   try {
     const saved = sessionStorage.getItem("ypch-path");
     if (saved) { sessionStorage.removeItem("ypch-path"); history.replaceState(null, "", saved); }
@@ -55,7 +54,6 @@
 <img class="art only-ds layer header-mark-ds" src="assets/img/header-mark-ds.webp" alt="">
 <div aria-hidden="true" class="header-rule"></div>
 <h1 class="visually-hidden" id="page-title">Yeeps Channel</h1>
-<!-- HOME -->
 <nav class="home-tabs" aria-label="Pages"><a href="/" data-tab="home">Home</a><a href="/schedule" data-tab="schedule">Schedule</a><a href="/watch" data-tab="watch">Watch</a><a href="/fundings" data-tab="fund">Fundings</a><a href="/news" data-tab="blog">News</a></nav>
 <section class="banner view-home home-banner" id="banner" aria-roledescription="carousel" aria-label="Announcements"><a id="banner-link"><img id="banner-image" alt=""></a></section>
 <div class="dots view-home home-dots" id="dots"></div>
@@ -76,7 +74,6 @@
 <div class="featured-card view-home home-featured-card" id="featured-card" tabindex="0" role="group" aria-label="Featured shows"><img id="featured-image" alt=""></div>
 <h3 class="featured-name view-home home-featured-name" id="featured-name"></h3>
 <p class="featured-blurb view-home home-featured-blurb" id="featured-blurb"></p>
-<!-- NEWS: the three newest published posts -->
 <div class="view-home news-block" id="home-news" hidden>
 <h2 class="news-title">Latest news</h2>
 <section class="news-card" id="home-news-list" aria-label="Latest news"></section>
@@ -84,7 +81,6 @@
 <svg class="layer news-star-g" viewBox="8757 12754 787 805" aria-hidden="true"><path d="M8994 12847.6C8999.06 12752.3 9123.35 12719 9175.38 12799L9224.07 12873.8C9247.34 12909.6 9291.06 12926.3 9332.37 12915.2L9418.82 12892.1C9511.19 12867.3 9581.19 12975 9520.97 13049.2L9464.62 13118.6C9437.69 13151.8 9435.21 13198.4 9458.48 13234.2L9507.17 13309.1C9559.2 13389.1 9478.18 13488.9 9388.93 13454.8L9305.41 13422.8C9265.5 13407.5 9220.25 13419.7 9193.32 13452.8L9136.96 13522.3C9076.74 13596.5 8956.67 13550.5 8961.73 13455.2L8966.46 13366.1C8968.73 13323.4 8943.24 13284.2 8903.33 13269L8819.81 13237C8730.56 13202.9 8737.37 13074.7 8829.74 13049.9L8916.19 13026.8C8957.5 13015.7 8987 12979.3 8989.27 12936.7L8994 12847.6Z" fill="#45F46E"/></svg>
 <svg class="layer news-star-p" viewBox="3750 15444 1068 1081" aria-hidden="true"><path d="M3910.32 15653.2C3784.6 15626.4 3698.16 15776.1 3784.18 15871.7L3864.67 15961C3903.14 16003.7 3909.73 16066.4 3881 16116.1L3820.88 16220.3C3756.64 16331.5 3872.37 16460 3989.78 16407.8L4099.65 16358.9C4152.16 16335.5 4213.75 16348.6 4252.22 16391.3L4332.71 16480.7C4418.73 16576.2 4576.7 16505.9 4563.24 16378.1L4550.65 16258.5C4544.63 16201.4 4576.11 16146.9 4628.61 16123.5L4738.48 16074.6C4855.89 16022.4 4837.78 15850.4 4712.06 15823.7L4594.41 15798.7C4538.18 15786.7 4496.04 15739.9 4490.02 15682.8L4477.43 15563.2C4463.97 15435.4 4294.82 15399.4 4230.57 15510.6L4170.45 15614.8C4141.72 15664.5 4084.2 15690.1 4027.98 15678.2L3910.32 15653.2Z" fill="#E50081"/></svg>
 </div>
-<!-- FUNDINGS -->
 <img class="layer view-fund fund-shapes" alt="" src="assets/img/fund-shapes.svg?v=202611161930">
 <img class="art view-fund fund-logo" alt="Yeeps Channel Fundings" src="assets/img/fund-logo.webp?v=202611120010">
 <h1 class="visually-hidden view-fund">Yeeps Channel Fundings</h1>
@@ -101,7 +97,6 @@
 <div class="fund-text view-fund fund-why-text" data-fs="31" data-h="204"><p>We believe good ideas deserve the resources to become real productions. We help provide resources for projects with creative potential. Fundings allows us to develop new shows, films, and studio productions. Projects supported through Yeeps Channel Fundings become part of a larger creative network.<br>We focus on supporting the people and ideas behind each production. Every project helps expand Yeeps Channel and its programming lineup.</p></div>
 <h2 class="view-fund fund-heading fund-pitch-heading">Got a pitch?</h2>
 <div class="fund-text view-fund fund-pitch-text" data-fs="31" data-h="168"><p>Have an idea for a show, film, or original production?<br>We want to hear it.<br>If you have a project you think belongs on Yeeps Channel, send us your pitch and tell us about your idea, your vision, and what you want to create.<br>Contact @slimemelt on Discord or email <a href="mailto:rio@bloomnetworks.net">rio@bloomnetworks.net</a></p></div>
-<!-- WATCH -->
 <img class="layer view-watch only-ch watch-bg" alt="" src="assets/img/watch-bg.svg">
 <img class="art view-watch watch-title" src="assets/img/watch-title.webp" alt="Watch">
 <section class="player view-watch watch-player" id="player" aria-label="Live player">
@@ -117,9 +112,7 @@
 <a class="view-watch watch-discord" href="https://bloomnetworks.net/discord" aria-label="Join our Discord"><img class="art fill-image" alt="" src="assets/img/watch-discord.webp"></a>
 <img class="layer only-ch hide-on-subpages corner-shape-ch" alt="" src="assets/img/corner-shape.svg">
 <img class="layer only-ds hide-on-subpages corner-shape-ds" alt="" src="assets/img/corner-shape.svg">
-<!-- BLOG -->
 <img class="layer view-blog blog-shapes" alt="" src="assets/img/blog-shapes.svg?v=202611131445">
-<!-- BLOG PAGES -->
 <section id="blog-page" class="page blog" aria-label="News"><div class="blog-column">
 <h1 class="blog-title">News</h1>
 <p class="blog-intro" id="blog-intro"></p>
@@ -127,7 +120,6 @@
 </div></section>
 <section id="legal-page" class="page" aria-label="Legal"><div class="legal-inline" id="legal-body"></div></section>
 <section id="post-page" class="page blog" aria-label="Post"><div class="blog-column" id="post-body"></div></section>
-<!-- SCHEDULE PAGE -->
 <section id="schedule-page" class="page" aria-label="Stream schedule"><div class="schedule-column">
 <div class="schedule-header">
 <img class="only-ch schedule-swoosh-ch" alt="" src="assets/img/schedule-swoosh-ch.webp"><img class="only-ds schedule-swoosh-ds" alt="" src="assets/img/schedule-swoosh-ds.webp">
@@ -140,7 +132,6 @@
 <ol class="events" id="events"></ol>
 <p class="closing" id="schedule-closing"></p>
 </div></section>
-<!-- ADMIN -->
 <section id="admin-page" class="page" aria-label="Admin"><div class="admin">
 <h1>Admin</h1>
 <p id="admin-status" class="note"></p>
@@ -156,7 +147,6 @@
 <div class="savebar"><button class="btn-primary" id="admin-save">Save changes</button><button class="btn" id="admin-revert">Discard changes</button><button class="btn" id="admin-signout">Sign out</button><span id="admin-toast" role="status"></span></div>
 </div>
 </div></section>
-<!-- shared foreground -->
 <div class="site-footer">
 <img class="layer only-ch footer-scene-ch" alt="" src="assets/img/footer-scene-ch.svg"><img class="layer only-ds footer-scene-ds" alt="" src="assets/img/footer-scene-ds.svg">
 <p class="footer-legal footer-legal-text">YEEPS CHANNEL IS RUN BY <a class="bl" href="https://bloomnetworks.net">BLOOM NETWORKS</a><br><span class="footer-copyright">©2026 Bloom Networks, Trass Games Inc.</span><br><a href="/dmca">DMCA</a><a href="/terms">TERMS</a><a href="/privacy">PRIVACY</a><a href="/admin">ADMIN</a></p>

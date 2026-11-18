@@ -1,4 +1,3 @@
-/* Home view */
 .banner{border-radius:calc(28*var(--u));overflow:hidden;background:#222;border:calc(2.8*var(--u)) solid #fff}
 .banner a{display:block;width:100%;height:100%}
 .banner a[href]{cursor:pointer}
@@ -47,7 +46,6 @@
   stroke-linejoin:round;
 }
 
-/* news */
 .stage[data-view=home]{aspect-ratio:1047/var(--home-h,3417)}
 .news-block{left:0;width:100%;top:calc(2318*var(--u))}
 .news-block[hidden]{display:none}
@@ -66,18 +64,14 @@
 .stage[data-site=ds] .home-tabs a[aria-current]{background:#fff;color:var(--charcoal)}
 
 .home-featured-title{margin:0;left:0;width:100%;top:calc(1772*var(--u));text-align:center;font:400 calc(60*var(--u))/1 "Gasoek One",sans-serif;color:#2b3439;text-transform:uppercase}
-/* light copy uses Varela Round */
 .news-row p,.footer-copyright{font-family:"Varela Round",sans-serif;font-weight:400}
-/* tabs stand on the header line, below the pin */
 .header-rule{top:calc(177*var(--u))}
 
-/* menu button removed: pages live in the tabs, social links in the footer */
 #menu-button,#menu{display:none!important}
 .footer-social{left:8.75%;top:calc(328*var(--u));display:flex;align-items:center;gap:calc(14*var(--u))}
 .footer-social a{display:block;line-height:0}
 .site-toggle{left:79.57%}
 
-/* every page sits below the tab row */
 .stage[data-view=fund] .view-fund,.stage[data-view=watch] .view-watch,.stage[data-view=legal] #legal-page,.stage[data-view=blog] .view-blog,.stage[data-view=post] .view-blog{translate:0 calc(50*var(--u))}
 .stage[data-view=fund]{aspect-ratio:1047/2280}
 .stage[data-view=schedule] #schedule-page,.stage:is([data-view=blog],[data-view=post]) .page.blog{translate:0 calc(50*var(--u))}
@@ -85,7 +79,6 @@
 .stage .page.blog{padding-bottom:calc(470*var(--u))}
 
 .home-watch-more{margin:0;left:0;width:100%;top:calc(778*var(--u));text-align:center;font:900 calc(40*var(--u))/1 "Londrina Solid",sans-serif;color:var(--charcoal)}
-/* Yeeps Don't Sleep (black) colours */
 .stage[data-site=ds] .home-watch-more,.stage[data-site=ds] .home-featured-title,.stage[data-site=ds] .news-title{color:#e3e3ff}
 .stage[data-site=ds] .news-more{color:#e3e3ff}
 .footer-social svg g{fill:var(--navy)}

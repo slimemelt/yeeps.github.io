@@ -1,4 +1,3 @@
-/** Fades elements in the first time they scroll into view. */
 const seen = new IntersectionObserver((entries) => {
   for (const entry of entries) {
     if (!entry.isIntersecting) continue;

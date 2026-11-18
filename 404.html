@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;900&display=swap">
 <script>
-  // Site pages (/fundings, /blog/some-post…) go straight back to index.html before anything paints.
   (function () {
     var first = decodeURIComponent(location.pathname).split("/")[1].toLowerCase();
     if (["schedule", "watch", "fundings", "blog", "news", "terms", "privacy", "dmca", "admin"].indexOf(first) > -1) {
@@ -36,8 +35,6 @@
   <p id="detail"></p>
 </main>
 <script type="module">
-  // GitHub Pages serves this file for any path that doesn't exist. If the path is a short link
-  // saved in the admin (for example /discord), forward the visitor; otherwise show "not found".
   const API = "https://api.bloomnetworks.net";
 
   const host = location.hostname.replace(/^www\./, "");

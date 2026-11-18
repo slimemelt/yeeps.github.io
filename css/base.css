@@ -1,4 +1,3 @@
-/* Design tokens, reset and page-level rules shared by every view. */
 :root {
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
