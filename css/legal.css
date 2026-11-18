@@ -24,3 +24,11 @@ footer a+a{margin-left:28px}
 @media(min-width:700px){body{font-size:23px}.legal{padding-top:0}}
 .tabs{display:flex;gap:.3em;border-bottom:3px solid var(--blue);font-weight:400;font-size:min(15px,3vw);line-height:1;letter-spacing:.02em;text-transform:uppercase}
 .tabs a,.tabs a:hover{display:block;padding:.65em .5em .55em;text-align:center;flex:1 1 auto;background:var(--pink);color:#fff;border-radius:.5em .5em 0 0;text-decoration:none}
+html[data-site=ds] body{background:#000;color:#e3e3ff}
+html[data-site=ds] h1{color:#fff}
+html[data-site=ds] h2{color:var(--yellow)}
+html[data-site=ds] a{color:#e3e3ff}
+html[data-site=ds] a:hover{color:var(--pink)}
+html[data-site=ds] .tabs a,html[data-site=ds] .tabs a:hover{color:#fff}
+html[data-site=ds] .pin{width:34px;aspect-ratio:168/151;background:url(../assets/img/header-mark-ds.webp) center/contain no-repeat}
+html[data-site=ds] .pin img{display:none}
