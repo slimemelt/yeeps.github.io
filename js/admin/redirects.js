@@ -3,6 +3,7 @@ import { REDIRECT_HOSTS } from "../config.js";
 import { store } from "../store.js";
 
 let rows = [];
+let onServer = 0;
 let unsaved = false;
 
 // Rows only reach the server on "Save redirects", so warn before a refresh throws them away.
@@ -12,6 +13,7 @@ addEventListener("beforeunload", (event) => {
 
 export async function loadRedirects() {
   rows = await store.loadRedirects();
+  onServer = rows.length;
   unsaved = false;
 }
 
@@ -65,6 +67,7 @@ export async function onRedirectClick(button, ui) {
   } else if (action === "save") {
     if (button.disabled) return;
     const filled = rows.filter((row) => row.path.trim() || row.url.trim());
+    if (!filled.length && onServer && !confirm(`This removes all ${onServer} saved redirects from the live site. Save anyway?`)) return;
     // The store accepts about one write a second, so a double tap must not send two.
     button.disabled = true;
     try {
