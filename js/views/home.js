@@ -15,9 +15,6 @@ let slideIndex = 0;
 let showIndex = 0;
 let slideTimer = 0;
 
-/* ---------- banner carousel ---------- */
-
-// A banner only links somewhere when it has a web address or a page on this site.
 function setBannerLink(link) {
   const isWeb = /^https?:\/\//i.test(link || "");
   const isPage = /^#[\w/-]+$/.test(link || "");
@@ -74,12 +71,8 @@ function renderBanner() {
   showSlide(0);
 }
 
-// Count the slide's time from when its image is actually on screen, so a slow first
-// banner is never skipped before anyone has seen it.
 bannerImage.addEventListener("load", restartAutoplay);
 bannerImage.addEventListener("error", restartAutoplay);
-
-/* ---------- featured shows ---------- */
 
 function renderFeatured() {
   const shows = getContent(state.site).shows;
@@ -108,7 +101,6 @@ export function resetFeatured() {
   showIndex = 0;
 }
 
-// Swipe or drag the card, or use the arrow keys when it has focus.
 function enableFeaturedNavigation() {
   let startX = null;
   featuredCard.style.touchAction = "pan-y";
@@ -126,9 +118,6 @@ function enableFeaturedNavigation() {
   });
 }
 
-/* ---------- intro paragraph ---------- */
-
-// The intro is sized to the artboard; shrink it a touch if a narrow font makes it wrap to a fourth line.
 export function fitAboutText() {
   const paragraph = document.querySelector(".about-text");
   if (!paragraph) return;

@@ -10,7 +10,6 @@ export function pickImage() {
   });
 }
 
-// Downscale in the browser and store as WebP, so uploads stay small whatever the source was.
 export async function imageToUrl(file, maxWidth) {
   const bitmap = await createImageBitmap(file);
   const ratio = Math.min(1, maxWidth / bitmap.width);

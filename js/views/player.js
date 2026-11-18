@@ -23,7 +23,6 @@ function fail() {
   box.classList.add("has-error");
 }
 
-// hls.js where the browser has Media Source Extensions; otherwise (iPhone Safari) the native HLS player.
 export async function ensurePlayer() {
   if (started) return;
   started = true;

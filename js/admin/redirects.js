@@ -6,7 +6,6 @@ let rows = [];
 let onServer = 0;
 let unsaved = false;
 
-// Rows only reach the server on "Save redirects", so warn before a refresh throws them away.
 addEventListener("beforeunload", (event) => {
   if (unsaved) event.preventDefault();
 });
@@ -52,7 +51,6 @@ export function onRedirectInput(field) {
   item.querySelector("[data-preview]").textContent = shortLink(row);
 }
 
-/** Handles the add / delete / save buttons. `ui` gives it the page's render and toast. */
 export async function onRedirectClick(button, ui) {
   const action = button.dataset.redirect;
   if (action === "add") {
@@ -68,7 +66,6 @@ export async function onRedirectClick(button, ui) {
     if (button.disabled) return;
     const filled = rows.filter((row) => row.path.trim() || row.url.trim());
     if (!filled.length && onServer && !confirm(`This removes all ${onServer} saved redirects from the live site. Save anyway?`)) return;
-    // The store accepts about one write a second, so a double tap must not send two.
     button.disabled = true;
     try {
       await store.saveRedirects(filled);

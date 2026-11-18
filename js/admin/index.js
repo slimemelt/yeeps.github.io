@@ -35,9 +35,7 @@ async function loadDraft() {
   let saved = null;
   try {
     saved = await store.loadAdmin(site);
-  } catch {
-    /* fall back to what the page already loaded */
-  }
+  } catch {}
   draft = clone({ ...getContent(site), ...(saved ?? {}) });
   draft.posts ??= [];
   dirty = false;
@@ -49,10 +47,8 @@ function render() {
     ([key, label]) => `<button data-tab="${key}" aria-pressed="${key === tab}">${label}</button>`
   ).join("");
   body.innerHTML = TABS.find(([key]) => key === tab)[2](draft);
-  // Redirects and the password apply to every site and have their own buttons.
   const sharedTab = tab === "redirects" || tab === "password";
   $("admin-site").hidden = sharedTab;
-  // The bar stays up on these tabs so save confirmations and errors are visible; only the content buttons go.
   $("admin-save").hidden = sharedTab;
   $("admin-revert").hidden = sharedTab;
 }
@@ -74,8 +70,6 @@ function showSignedIn(signedIn) {
   }
 }
 
-/* ---------- edits ---------- */
-
 const today = () => new Date().toLocaleDateString("en-CA");
 
 const slugify = (text) =>
@@ -85,7 +79,6 @@ const slugify = (text) =>
     .replace(/^-+|-+$/g, "")
     .slice(0, 80);
 
-// Every post needs a unique web address and a date before the Worker will take it.
 function tidyPosts(posts) {
   const taken = new Set();
   return posts.map((post) => {
@@ -217,8 +210,6 @@ function signedOut() {
   showSignedIn(false);
   toast("Your session ended. Sign in again.");
 }
-
-/* ---------- wiring ---------- */
 
 const LOGIN_MESSAGES = {
   401: "That password didn’t work.",

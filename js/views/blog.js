@@ -22,7 +22,6 @@ function formatDate(date) {
   return new Date(`${date}T00:00:00Z`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 }
 
-// Posts are plain text: **bold**, [text](https://link), and "## " for a heading. Nothing here is ever parsed as HTML.
 function inline(text) {
   const fragment = document.createDocumentFragment();
   for (const part of text.split(MARKUP)) {
@@ -124,7 +123,6 @@ export function renderBlog() {
   if (state.view === "post") renderPost(decodeURIComponent(location.pathname.slice("/news/".length)));
 }
 
-/** Home page: the three newest published posts. The section disappears when there are none. */
 export function renderHomeNews() {
   const block = $("home-news");
   const items = posts().slice(0, 3);
@@ -151,10 +149,8 @@ export function renderHomeNews() {
   reveal([...$("home-news-list").children]);
 }
 
-// The home artboard is a fixed Figma height; stretch it to fit however many posts there are.
 export function fitHomeHeight() {
   const stage = $("stage");
-  // The block has no size while another page is showing, so measure only on Home.
   if (stage.dataset.view !== "home") return;
   const unit = stage.clientWidth / 1047;
   const block = $("home-news");
