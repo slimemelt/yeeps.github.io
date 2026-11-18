@@ -41,7 +41,7 @@ document.addEventListener("click", (event) => {
   if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || link.target) return;
   const href = link.getAttribute("href");
   const path = href === "#home" ? "/" : href.startsWith("#") && ROUTES["/" + href.slice(1)] ? "/" + href.slice(1) : href;
-  if (!path.startsWith("/") || path.startsWith("//")) return;
+  if (!path.startsWith("/") || path.startsWith("//") || path.startsWith("/pintoss")) return;
   event.preventDefault();
   navigate(path);
 });
