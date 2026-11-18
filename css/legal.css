@@ -32,3 +32,7 @@ html[data-site=ds] a:hover{color:var(--pink)}
 html[data-site=ds] .tabs a,html[data-site=ds] .tabs a:hover{color:#fff}
 html[data-site=ds] .pin{width:34px;aspect-ratio:168/151;background:url(../assets/img/header-mark-ds.webp) center/contain no-repeat}
 html[data-site=ds] .pin img{display:none}
+footer{position:relative;margin-top:100px}
+footer .dummy{position:absolute;right:8px;bottom:calc(100% + 3px);width:72px;margin:0;transform:rotate(-10deg);transform-origin:50% 100%;transition:transform .15s}
+footer .dummy:hover{transform:rotate(-4deg)}
+footer .dummy img{display:block;width:100%;height:auto}
