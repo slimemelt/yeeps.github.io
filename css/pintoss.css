@@ -19,3 +19,4 @@
 #menu-button,#menu{display:none!important}
 .pintoss-shapes{z-index:0;left:calc(-520*var(--u));top:0;width:calc(1513.5*var(--u))}
 .pintoss-hint{left:5.54%;top:calc(486*var(--u));width:44%;margin:0;font-size:calc(31*var(--u));line-height:calc(35*var(--u));color:var(--lc)}
+html[data-site=ch] body{background:#fff}
