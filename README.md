@@ -1,14 +1,15 @@
 # Yeeps Channel site
 
-Static site for yeeps.bloomnetworks.net: Channel / Don't Sleep, schedule, Watch (HLS), Fundings, DMCA and a small admin editor.
+Static site for yeeps.bloomnetworks.net: Channel / Don't Sleep, schedule, Watch (HLS), Fundings, Terms, Privacy, DMCA, the Pin Toss game and a small admin editor.
 
 ## Layout
 
 - `index.html` - markup only, one `<section>` per view
 - `css/` - `base` (tokens, reset), `stage` (artboard scaling, view visibility), `layout` (positioned art, from the Figma export), one file per view
 - `js/` - ES modules: `router`, `menu`, `loader`, `content`, `store`, `views/*`, `admin/*` (lazy-loaded)
+- `pintoss/`, `terms/`, `privacy/`, `dmca/` - plain HTML pages; terms, privacy and DMCA are also loaded into the main page
 - `content/` - `channel.json`, `dont-sleep.json` (shows, schedule, text)
-- `assets/` - `img/` artwork, `icons/` player icons
+- `assets/` - `img/` artwork, `pintoss/` game sounds
 
 ## Run locally
 
