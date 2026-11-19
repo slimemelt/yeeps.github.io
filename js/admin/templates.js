@@ -129,7 +129,7 @@ export const TABS = [
   ["banners", "Banners", bannersTab],
   ["schedule", "Schedule", scheduleTab],
   ["shows", "Featured shows", showsTab],
-  ["posts", "Blog", postsTab],
+  ["posts", "News", postsTab],
   ["text", "Page text", textTab],
   ["redirects", "Redirects", redirectsHtml],
   ["backup", "Backup", backupTab],
