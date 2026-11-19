@@ -322,12 +322,16 @@ function updatePin(pin, dt) {
       if (a && b && Math.hypot(b.x - a.x, b.y - a.y) > 6) pin.a = Math.atan2(b.y - a.y, b.x - a.x);
       break;
     }
-    case "fly":
-      pin.vy += GRAVITY * dt;
-      pin.x += pin.vx * dt;
-      pin.y += pin.vy * dt;
-      pin.a = Math.atan2(pin.vy, pin.vx);
-      if (strike(pin)) return sendHome(pin);
+    case "fly": {
+      const steps = Math.max(1, Math.ceil(Math.hypot(pin.vx, pin.vy) * dt / 8));
+      const h = dt / steps;
+      for (let i = 0; i < steps; i++) {
+        pin.vy += GRAVITY * h;
+        pin.x += pin.vx * h;
+        pin.y += pin.vy * h;
+        pin.a = Math.atan2(pin.vy, pin.vx);
+        if (strike(pin)) return sendHome(pin);
+      }
       if (pin.y + Math.sin(pin.a) * pin.len >= FLOOR) {
         pin.y = FLOOR - Math.sin(pin.a) * pin.len;
         pin.state = "down";
@@ -337,6 +341,7 @@ function updatePin(pin, dt) {
       }
       if (pin.x < -80 || pin.x > W + 80) sendHome(pin);
       break;
+    }
     case "down":
       if ((pin.wait -= dt) <= 0) sendHome(pin);
       break;
