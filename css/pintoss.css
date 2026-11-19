@@ -1,7 +1,7 @@
 .stage[data-view=pintoss]{aspect-ratio:1047/1700}
-.pintoss-title{left:5.54%;top:calc(262*var(--u));margin:0;font:400 calc(88*var(--u))/1 "Gasoek One",sans-serif;text-transform:uppercase;color:var(--lc)}
-.pintoss-sub{left:5.54%;top:calc(378*var(--u));margin:0;font-size:calc(28*var(--u));line-height:1;color:var(--lc)}
-.pintoss-score{left:5.54%;top:calc(448*var(--u));display:flex;gap:calc(36*var(--u));font-size:calc(29*var(--u));line-height:1;letter-spacing:.03em;text-transform:uppercase;color:var(--tc)}
+.pintoss-title{left:5.54%;top:calc(234*var(--u));margin:0;font:400 calc(108*var(--u))/.9 "Gasoek One",sans-serif;text-transform:uppercase;color:var(--lc)}
+.pintoss-sub{left:5.54%;top:calc(353*var(--u));margin:0;font-size:calc(31*var(--u));line-height:calc(35*var(--u));color:var(--lc)}
+.pintoss-score{left:5.54%;top:calc(426*var(--u));display:flex;gap:calc(36*var(--u));font-size:calc(29*var(--u));line-height:1;letter-spacing:.03em;text-transform:uppercase;color:var(--tc)}
 .pintoss-score b{margin-left:calc(8*var(--u));font-weight:900;color:var(--pink)}
 .pintoss-canvas{z-index:3;left:0;top:calc(540*var(--u));width:100%;height:calc(760*var(--u));cursor:grab;touch-action:none}
 .pintoss-canvas.holding{cursor:grabbing}
@@ -18,4 +18,4 @@
 .stage[data-view=pintoss] .site-toggle{left:79.57%}
 #menu-button,#menu{display:none!important}
 .pintoss-shapes{z-index:0;left:calc(-520*var(--u));top:0;width:calc(1513.5*var(--u))}
-.pintoss-hint{left:5.54%;top:calc(510*var(--u));width:44%;margin:0;font-size:calc(26*var(--u));line-height:1.15;color:var(--lc)}
+.pintoss-hint{left:5.54%;top:calc(486*var(--u));width:44%;margin:0;font-size:calc(31*var(--u));line-height:calc(35*var(--u));color:var(--lc)}
